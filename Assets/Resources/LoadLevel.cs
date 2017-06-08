@@ -7,22 +7,18 @@ using System.Xml.Serialization;
 
 public class LoadLevel : MonoBehaviour {
 
+	public static int modeID;
+	public static int hpTroopCastle;
+	public static int hpEnemyCastle;
+	public static int timeStart;
+	public static int totalWave;
 
-	public int modeID;
-	public int hpTroopCastle;
-	public int hpEnemyCastle;
-	public float timeStart;
-	public float timeNextWave;
-	public int totalWave;
-
-	public List<DataWave> listWaves;
-
-
+	public static int[,] dataWaves;
 
 	public TextAsset xmlFile;
 	int level = 1;
 
-	void Start()
+	void Awake()
 	{
 		string data = xmlFile.text;
 		ParseXmlFile (data);
@@ -41,21 +37,20 @@ public class LoadLevel : MonoBehaviour {
 			XmlNode nodehpTroopCastle = nodeModeID.NextSibling;
 			XmlNode nodehpEnemyCastle = nodehpTroopCastle.NextSibling;
 			XmlNode nodeTimeStart = nodehpEnemyCastle.NextSibling;
-			XmlNode nodeTimeNextWave = nodeTimeStart.NextSibling;
-			XmlNode nodetotalWave = nodeTimeNextWave.NextSibling;
+			XmlNode nodeTotalWave = nodeTimeStart.NextSibling;
 
 			modeID = int.Parse (nodeModeID.InnerXml);
 			hpTroopCastle = int.Parse (nodehpTroopCastle.InnerXml);
 			hpEnemyCastle = int.Parse (nodehpEnemyCastle.InnerXml);
 			timeStart = int.Parse (nodeTimeStart.InnerXml);
-			timeNextWave = int.Parse (nodeTimeNextWave.InnerXml);
-			totalWave = int.Parse (nodetotalWave.InnerXml);
+			totalWave = int.Parse (nodeTotalWave.InnerXml);
 		}
 
-		string xmlPathLevelWave = xmlPathLevel + "/waves";
+		string xmlPathLevelWave = xmlPathLevel + "/Waves";
 		XmlNodeList myNodeWaveList = xmlDoc.SelectNodes (xmlPathLevelWave);
 
-		DataWave tempData = new DataWave();
+		int index = 0;
+		dataWaves = new int[totalWave, WaveElement.totalElement];
 		foreach(XmlNode node in myNodeWaveList)
 		{
 			XmlNode enemyType = node.FirstChild;
@@ -63,24 +58,26 @@ public class LoadLevel : MonoBehaviour {
 			XmlNode enemyNum = enemyLevel.NextSibling;
 			XmlNode enemyLane = enemyNum.NextSibling;
 			XmlNode timeNextEnemy = enemyLane.NextSibling;
+			XmlNode timeNextWave = timeNextEnemy.NextSibling;
+			dataWaves[index,WaveElement.enemyType] = int.Parse (enemyType.InnerXml);
+			dataWaves[index,WaveElement.enemyLevel] = int.Parse (enemyLevel.InnerXml);
+			dataWaves[index,WaveElement.enemyNum] = int.Parse (enemyNum.InnerXml);
+			dataWaves[index,WaveElement.enemyLane] = int.Parse (enemyLane.InnerXml);
+			dataWaves[index,WaveElement.timeNextEnemy] = int.Parse (timeNextEnemy.InnerXml);
+			dataWaves[index,WaveElement.timeNextWave] = int.Parse (timeNextWave.InnerXml);
 
-			tempData.enemyType = int.Parse (enemyType.InnerXml);
-			tempData.enemyLevel = int.Parse (enemyLevel.InnerXml);
-			tempData.enemyNum = int.Parse (enemyNum.InnerXml);
-			tempData.enemyLane = int.Parse (enemyLane.InnerXml);
-			tempData.timeNextEnemy = float.Parse (timeNextEnemy.InnerXml);
-
-			listWaves.Add (tempData);
+			index++;
 		}
 	}
-
 }
 
-public class DataWave 
+public class WaveElement 
 {
-	public int enemyType;
-	public int enemyLevel;
-	public int enemyNum;
-	public int enemyLane;
-	public float timeNextEnemy;
+	public const int enemyType = 0;
+	public const int enemyLevel = 1;
+	public const int enemyNum = 2;
+	public const int enemyLane = 3;
+	public const int timeNextEnemy = 4;
+	public const int timeNextWave = 5;
+	public const int totalElement = 6;
 }

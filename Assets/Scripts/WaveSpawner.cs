@@ -9,22 +9,53 @@ public class WaveSpawner : MonoBehaviour {
 	public Transform spawnPoint;
 	float timeCountDown = 2f;
 
+	private int indexWave = 0;
+	private int indexEnemy = 0;
+	private float timeNextEnemy = 0f;
+	private float timeNextWave = 0f;
 
 	// Update is called once per frame
 	void Update () {
-		if (timeCountDown <= 0f) 
+
+		if (LoadLevel.timeStart <= Time.timeSinceLevelLoad)
 		{
-			SpawnEnemy ();
-			timeCountDown = 2f;
+			if(indexWave < LoadLevel.totalWave && timeNextWave <= 0)
+			{
+				if (indexEnemy < LoadLevel.dataWaves[indexWave,WaveElement.enemyNum] && timeNextEnemy <= 0) {
+					int lane = LoadLevel.dataWaves[indexWave,WaveElement.enemyLane];
+					if (lane == 5) {
+						lane = Random.Range (0, 5); // random 0 1 2 3 4
+					} else if (lane == 6) {
+						lane = Random.Range (0, 2); // random 0 1
+					} else if (lane == 7) {
+						lane = Random.Range (3, 5); // random 3 4
+					} else if (lane == 8) {
+						lane = Random.Range (1, 4); // random 1 2 3
+					}
+
+					SpawnEnemy (indexWave, lane);
+					timeNextEnemy = LoadLevel.dataWaves[indexWave,WaveElement.timeNextEnemy];
+					indexEnemy++;
+				} else if(indexEnemy == LoadLevel.dataWaves[indexWave,WaveElement.enemyNum]){
+					indexEnemy = 0;
+					timeNextEnemy = 0;
+					timeNextWave = LoadLevel.dataWaves[indexWave,WaveElement.timeNextWave];
+					indexWave++;
+				}
+
+
+			}
+			timeNextEnemy -= Time.deltaTime;
+			timeNextWave -= Time.deltaTime;
+
 		}
 
 		timeCountDown -= Time.deltaTime;
 	}
 
-	void SpawnEnemy()
+	void SpawnEnemy(int indexwave, int lane)
 	{	
-		int id = Random.Range (0, listEnemyPrefab.Length);
-		spawnPoint = WayPoints.points[Random.Range (0, 5)];
-		Instantiate (listEnemyPrefab[0], spawnPoint.position, spawnPoint.rotation);
+		spawnPoint = WayPoints.points[lane];
+		Instantiate (listEnemyPrefab[indexwave], spawnPoint.position, spawnPoint.rotation);
 	}
 }
