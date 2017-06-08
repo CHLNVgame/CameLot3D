@@ -6,22 +6,27 @@ using System.IO;
 using System.Xml.Serialization;
 
 public class LoadLevel : MonoBehaviour {
+	public static LoadLevel instance;
 
-	public static int modeID;
-	public static int hpTroopCastle;
-	public static int hpEnemyCastle;
-	public static int timeStart;
-	public static int totalWave;
+	public int modeID;
+	public int hpTroopCastle;
+	public int hpEnemyCastle;
+	public int timeStart;
+	public int totalWave;
 
-	public static int[,] dataWaves;
+	public int[,] dataWaves;
 
 	public TextAsset xmlFile;
 	int level = 1;
 
 	void Awake()
 	{
+		if (instance != null)
+			return;
+		
 		string data = xmlFile.text;
 		ParseXmlFile (data);
+		instance = this;
 	}
 
 	void ParseXmlFile(string xmlData)
