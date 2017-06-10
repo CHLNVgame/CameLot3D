@@ -4,30 +4,33 @@ using UnityEngine;
 
 public class EnemyManager : MonoBehaviour {
 
-	public float angle;
-	public float speed;
+	[Header("Settings")]
 	public int hp;
+	public float speed;
 	public int damge;
 	public float range;
 
-	public bool isWalk;
+	[Header("View")]
+	public bool isRun;
 	public bool isAttack;
-	public bool isBuff;
 	public Animator anim;
+	public float speedSlow;
+	public float speedNormal;
+	public Transform target;
+	public const string actionRun ="run";
+	public const string actionAttack = "attack";
+	public const string actionDefend = "defend";
+	public const string actionBuff = "buff";
 
-	float speedSlow;
-	float speedNormal;
-
-	private Transform target;
 	string stroopTag = "Troop";
 
 	// Use this for initialization
 	void Start () {
-		isWalk = true;
+		isRun = true;
 		speedSlow = speed/2;
 		speedNormal = speed;
 		anim = GetComponent<Animator> ();
-		anim.Play ("walk");
+		anim.Play (actionRun);
 
 		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
 
@@ -72,22 +75,6 @@ public class EnemyManager : MonoBehaviour {
 			}
 		}
 	}	
-	// Update is called once per frame
-	void Update () {
-		
-		if (isWalk)
-		{
-			transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		}
-
-		if (target != null)
-		{
-			isAttack = true;
-			isWalk = false;
-
-			anim.Play ("attack");
-		}
-	}
 
 	// Call from Animation
 	public void HitPlayer(){
@@ -100,9 +87,15 @@ public class EnemyManager : MonoBehaviour {
 	//	}
 	}
 
+	void TakeDamge(int damge)
+	{
+		
+	}
+/*
 	void OnDrawGizmosSelected()
 	{
 		Gizmos.color = Color.red;
 		Gizmos.DrawWireSphere (transform.position, range);
 	}
+*/
 }

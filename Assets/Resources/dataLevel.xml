@@ -6,7 +6,7 @@
 		<TimeStart>3.5</TimeStart>
 		<TotalWave>5</TotalWave>
 		<Waves>
-			<EnemyType>4</EnemyType>
+			<EnemyType>0</EnemyType>
 			<EnemyLevel>1</EnemyLevel>
 			<EnemyNum>1</EnemyNum>
 			<EnemyLane>2</EnemyLane>
@@ -14,7 +14,7 @@
 			<TimeNextWave>7</TimeNextWave>
 		</Waves>
 		<Waves>
-			<EnemyType>0</EnemyType>
+			<EnemyType>1</EnemyType>
 			<EnemyLevel>1</EnemyLevel>
 			<EnemyNum>1</EnemyNum>
 			<EnemyLane>1</EnemyLane>

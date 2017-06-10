@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 6e78932af1e632545b75ee527646c786
-timeCreated: 1497071713
+guid: 7c08c4fedf16adc44926975616062115
+timeCreated: 1497069608
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -27,29 +27,39 @@ ModelImporter:
     100038: Bip001 L UpperArm
     100040: Bip001 Neck
     100042: Bip001 Pelvis
-    100044: Bip001 R Calf
-    100046: Bip001 R Clavicle
-    100048: Bip001 R Finger0
-    100050: Bip001 R Finger01
-    100052: Bip001 R Finger0Nub
-    100054: Bip001 R Finger1
-    100056: Bip001 R Finger11
-    100058: Bip001 R Finger1Nub
-    100060: Bip001 R Foot
-    100062: Bip001 R Forearm
-    100064: Bip001 R Hand
-    100066: Bip001 R Thigh
-    100068: Bip001 R Toe0
-    100070: Bip001 R Toe0Nub
-    100072: Bip001 R UpperArm
-    100074: Bip001 Spine
-    100076: Bip001 Spine1
-    100078: eyes
-    100080: helmet
-    100082: //RootNode
-    100084: shield
-    100086: Skeletonl_base
-    100088: sword
+    100044: Bip001 Ponytail2
+    100046: Bip001 Ponytail21
+    100048: Bip001 Ponytail22
+    100050: Bip001 Ponytail23
+    100052: Bip001 Ponytail2Nub
+    100054: Bip001 R Calf
+    100056: Bip001 R Clavicle
+    100058: Bip001 R Finger0
+    100060: Bip001 R Finger01
+    100062: Bip001 R Finger0Nub
+    100064: Bip001 R Finger1
+    100066: Bip001 R Finger11
+    100068: Bip001 R Finger1Nub
+    100070: Bip001 R Foot
+    100072: Bip001 R Forearm
+    100074: Bip001 R Hand
+    100076: Bip001 R Thigh
+    100078: Bip001 R Toe0
+    100080: Bip001 R Toe0Nub
+    100082: Bip001 R UpperArm
+    100084: Bip001 Spine
+    100086: Bip001 Spine1
+    100088: Bone001
+    100090: Bone002
+    100092: Bone003
+    100094: Bone004
+    100096: Bone005
+    100098: Bone006
+    100100: cloak
+    100102: eyes
+    100104: //RootNode
+    100106: Skeletonl_base
+    100108: sword
     400000: armor
     400002: Bip001
     400004: Bip001 Footsteps
@@ -72,46 +82,51 @@ ModelImporter:
     400038: Bip001 L UpperArm
     400040: Bip001 Neck
     400042: Bip001 Pelvis
-    400044: Bip001 R Calf
-    400046: Bip001 R Clavicle
-    400048: Bip001 R Finger0
-    400050: Bip001 R Finger01
-    400052: Bip001 R Finger0Nub
-    400054: Bip001 R Finger1
-    400056: Bip001 R Finger11
-    400058: Bip001 R Finger1Nub
-    400060: Bip001 R Foot
-    400062: Bip001 R Forearm
-    400064: Bip001 R Hand
-    400066: Bip001 R Thigh
-    400068: Bip001 R Toe0
-    400070: Bip001 R Toe0Nub
-    400072: Bip001 R UpperArm
-    400074: Bip001 Spine
-    400076: Bip001 Spine1
-    400078: eyes
-    400080: helmet
-    400082: //RootNode
-    400084: shield
-    400086: Skeletonl_base
-    400088: sword
-    2300000: eyes
-    2300002: shield
-    2300004: sword
-    3300000: eyes
-    3300002: shield
-    3300004: sword
+    400044: Bip001 Ponytail2
+    400046: Bip001 Ponytail21
+    400048: Bip001 Ponytail22
+    400050: Bip001 Ponytail23
+    400052: Bip001 Ponytail2Nub
+    400054: Bip001 R Calf
+    400056: Bip001 R Clavicle
+    400058: Bip001 R Finger0
+    400060: Bip001 R Finger01
+    400062: Bip001 R Finger0Nub
+    400064: Bip001 R Finger1
+    400066: Bip001 R Finger11
+    400068: Bip001 R Finger1Nub
+    400070: Bip001 R Foot
+    400072: Bip001 R Forearm
+    400074: Bip001 R Hand
+    400076: Bip001 R Thigh
+    400078: Bip001 R Toe0
+    400080: Bip001 R Toe0Nub
+    400082: Bip001 R UpperArm
+    400084: Bip001 Spine
+    400086: Bip001 Spine1
+    400088: Bone001
+    400090: Bone002
+    400092: Bone003
+    400094: Bone004
+    400096: Bone005
+    400098: Bone006
+    400100: cloak
+    400102: eyes
+    400104: //RootNode
+    400106: Skeletonl_base
+    400108: sword
     4300000: Skeletonl_base
-    4300002: armor
-    4300004: helmet
-    4300006: shield
+    4300002: eyes
+    4300004: cloak
+    4300006: armor
     4300008: sword
-    4300010: eyes
-    7400000: run
+    7400000: hurt1
     9500000: //RootNode
     13700000: armor
-    13700002: helmet
-    13700004: Skeletonl_base
+    13700002: cloak
+    13700004: eyes
+    13700006: Skeletonl_base
+    13700008: sword
   materials:
     importMaterials: 1
     materialName: 0
@@ -134,17 +149,17 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: run
+      name: hurt1
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 24
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 1
+      loopTime: 0
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0
@@ -166,20 +181,22 @@ ModelImporter:
         weight: 1
       - path: Bip001/Bip001 Footsteps
         weight: 1
-      - path: Bip001/Bip001 L Thigh
-        weight: 1
-      - path: Bip001/Bip001 L Thigh/Bip001 L Calf
-        weight: 1
-      - path: Bip001/Bip001 L Thigh/Bip001 L Calf/Bip001 L Foot
-        weight: 1
-      - path: Bip001/Bip001 L Thigh/Bip001 L Calf/Bip001 L Foot/Bip001 L Toe0
-        weight: 1
-      - path: Bip001/Bip001 L Thigh/Bip001 L Calf/Bip001 L Foot/Bip001 L Toe0/Bip001
-          L Toe0Nub
-        weight: 1
       - path: Bip001/Bip001 Pelvis
         weight: 1
       - path: Bip001/Bip001 Pelvis/Bip001 Spine
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 L Thigh
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 L Thigh/Bip001 L Calf
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 L Thigh/Bip001 L Calf/Bip001
+          L Foot
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 L Thigh/Bip001 L Calf/Bip001
+          L Foot/Bip001 L Toe0
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 L Thigh/Bip001 L Calf/Bip001
+          L Foot/Bip001 L Toe0/Bip001 L Toe0Nub
         weight: 1
       - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 R Thigh
         weight: 1
@@ -202,8 +219,6 @@ ModelImporter:
         weight: 1
       - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 Head/Bip001
           HeadNub
-        weight: 1
-      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 Head/eyes
         weight: 1
       - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 L
           Clavicle
@@ -239,9 +254,6 @@ ModelImporter:
           Clavicle/Bip001 L UpperArm/Bip001 L Forearm/Bip001 L Hand/Bip001 L Finger1/Bip001
           L Finger11/Bip001 L Finger1Nub
         weight: 1
-      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 L
-          Clavicle/Bip001 L UpperArm/Bip001 L Forearm/Bip001 L Hand/shield
-        weight: 1
       - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R
           Clavicle
         weight: 1
@@ -276,12 +288,35 @@ ModelImporter:
           Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/Bip001 R Finger1/Bip001
           R Finger11/Bip001 R Finger1Nub
         weight: 1
-      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bip001 Neck/Bip001 R
-          Clavicle/Bip001 R UpperArm/Bip001 R Forearm/Bip001 R Hand/sword
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bip001 Ponytail2
         weight: 1
-      - path: helmet
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bone001
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bone001/Bone002
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bone001/Bone002/Bone003
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bone001/Bone002/Bone003/Bone004
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bone001/Bone002/Bone003/Bone004/Bone005
+        weight: 1
+      - path: Bip001/Bip001 Pelvis/Bip001 Spine/Bip001 Spine1/Bone001/Bone002/Bone003/Bone004/Bone005/Bone006
+        weight: 1
+      - path: Bip001 Ponytail2Nub
+        weight: 1
+      - path: Bip001 Ponytail21
+        weight: 1
+      - path: Bip001 Ponytail22
+        weight: 1
+      - path: Bip001 Ponytail23
+        weight: 1
+      - path: cloak
+        weight: 1
+      - path: eyes
         weight: 1
       - path: Skeletonl_base
+        weight: 1
+      - path: sword
         weight: 1
       maskType: 3
       maskSource: {instanceID: 0}

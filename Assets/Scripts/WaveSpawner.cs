@@ -55,7 +55,6 @@ public class WaveSpawner : MonoBehaviour {
 
 	void SpawnEnemy(int enemyID, int lane)
 	{	
-		Debug.Log (" +++++++ enemyID: "+enemyID);
 		spawnPoint = WayPoints.instance.points[lane];
 		Instantiate (listEnemyPrefab[enemyID], spawnPoint.position, spawnPoint.rotation);
 	}

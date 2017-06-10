@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: dabd20fe1695907438df7e4299bcaf89
+guid: d7722767621f19348a1905dfcdacd348
 timeCreated: 1497071717
 licenseType: Free
 ModelImporter:
@@ -107,7 +107,7 @@ ModelImporter:
     4300006: shield
     4300008: sword
     4300010: eyes
-    7400000: hit2
+    7400000: hurt2
     9500000: //RootNode
     13700000: armor
     13700002: helmet
@@ -134,7 +134,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: hit2
+      name: hurt2
       takeName: Take 001
       firstFrame: 0
       lastFrame: 50
