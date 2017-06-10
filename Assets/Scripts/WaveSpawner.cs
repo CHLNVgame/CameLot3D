@@ -33,7 +33,7 @@ public class WaveSpawner : MonoBehaviour {
 						lane = Random.Range (1, 4); // random 1 2 3
 					}
 
-					SpawnEnemy (indexWave, lane);
+					SpawnEnemy ((int)LoadLevel.instance.dataWaves[indexWave, WaveElement.enemyType], lane);
 					timeNextEnemy = LoadLevel.instance.dataWaves[indexWave,WaveElement.timeNextEnemy];
 					indexEnemy++;
 				} else if(indexEnemy == (int)LoadLevel.instance.dataWaves[indexWave,WaveElement.enemyNum]){
@@ -53,9 +53,10 @@ public class WaveSpawner : MonoBehaviour {
 		timeCountDown -= Time.deltaTime;
 	}
 
-	void SpawnEnemy(int indexwave, int lane)
+	void SpawnEnemy(int enemyID, int lane)
 	{	
+		Debug.Log (" +++++++ enemyID: "+enemyID);
 		spawnPoint = WayPoints.instance.points[lane];
-		Instantiate (listEnemyPrefab[indexwave], spawnPoint.position, spawnPoint.rotation);
+		Instantiate (listEnemyPrefab[enemyID], spawnPoint.position, spawnPoint.rotation);
 	}
 }

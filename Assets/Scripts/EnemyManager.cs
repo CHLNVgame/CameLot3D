@@ -12,6 +12,7 @@ public class EnemyManager : MonoBehaviour {
 
 	public bool isWalk;
 	public bool isAttack;
+	public bool isBuff;
 	public Animator anim;
 
 	float speedSlow;
@@ -34,13 +35,12 @@ public class EnemyManager : MonoBehaviour {
 
 	void UpdateTarget()
 	{
+/*
+		// Target on Radius
 		GameObject[] troops = GameObject.FindGameObjectsWithTag (stroopTag);
 		float shortestDistance = Mathf.Infinity;
 		GameObject nearestTroop = null;
 
-
-/*
- 		// Target on Radius
 		foreach(GameObject troop in troops)
 		{
 			float distanceToTroop = Vector3.Distance (transform.position, troop.transform.position);
@@ -62,15 +62,16 @@ public class EnemyManager : MonoBehaviour {
 		Vector3 checkTarget = transform.position + Vector3.up/2;
 	//	Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
 		Ray ray = new Ray (checkTarget, Vector3.left);
-		RaycastHit hit;
-		if(Physics.Raycast(ray, out hit, range ))
-		{
-		//	Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
-			target = hit.transform;
-		}
+		RaycastHit[] hits = Physics.RaycastAll(ray, range);
 
-	}
-	
+		foreach (RaycastHit hit in hits) 
+		{
+			if (hit.transform.tag.Equals (stroopTag)) {
+				target = hit.transform;
+			//	Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
+			}
+		}
+	}	
 	// Update is called once per frame
 	void Update () {
 		
