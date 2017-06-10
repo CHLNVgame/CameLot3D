@@ -38,6 +38,9 @@ public class EnemyManager : MonoBehaviour {
 		float shortestDistance = Mathf.Infinity;
 		GameObject nearestTroop = null;
 
+
+/*
+ 		// Target on Radius
 		foreach(GameObject troop in troops)
 		{
 			float distanceToTroop = Vector3.Distance (transform.position, troop.transform.position);
@@ -54,11 +57,23 @@ public class EnemyManager : MonoBehaviour {
 			target = nearestTroop.transform;
 			angle = Vector3.Angle (transform.position, target.up);
 		}
+*/
+		// Target on Lane
+		Vector3 checkTarget = transform.position + Vector3.up/2;
+	//	Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
+		Ray ray = new Ray (checkTarget, Vector3.left);
+		RaycastHit hit;
+		if(Physics.Raycast(ray, out hit, range ))
+		{
+		//	Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
+			target = hit.transform;
+		}
+
 	}
 	
 	// Update is called once per frame
 	void Update () {
-
+		
 		if (isWalk)
 		{
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
