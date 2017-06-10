@@ -9,6 +9,7 @@ public class EnemyManager : MonoBehaviour {
 	public float speed;
 	public int damge;
 	public float range;
+	public float attackDelay = 10.0f;
 
 	[Header("View")]
 	public bool isRun;

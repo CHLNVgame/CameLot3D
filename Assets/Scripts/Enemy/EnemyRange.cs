@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class EnemyRange : EnemyManager {
 
+	private float nextActtack = 0f;
 	// Update is called once per frame
 	void Update () {
 
@@ -12,12 +13,19 @@ public class EnemyRange : EnemyManager {
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		}
 
-		if (target != null)
+		Debug.Log (" xxxxxxxxx nextActtack: "+nextActtack);
+		if (target != null && nextActtack <= 0)
 		{
+			Debug.Log (" +++++++++++ ");
 			isAttack = true;
 			isRun = false;
 
 			anim.Play (actionAttack);
+			nextActtack = attackDelay;
+
 		}
+
+		if (nextActtack > 0)
+			nextActtack -= Time.deltaTime;
 	}
 }
