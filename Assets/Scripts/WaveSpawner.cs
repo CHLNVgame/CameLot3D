@@ -21,8 +21,8 @@ public class WaveSpawner : MonoBehaviour {
 		{
 			if(indexWave < LoadLevel.instance.totalWave && timeNextWave <= 0)
 			{
-				if (indexEnemy < LoadLevel.instance.dataWaves[indexWave,WaveElement.enemyNum] && timeNextEnemy <= 0) {
-					int lane = LoadLevel.instance.dataWaves[indexWave,WaveElement.enemyLane];
+				if (indexEnemy < (int)LoadLevel.instance.dataWaves[indexWave,WaveElement.enemyNum] && timeNextEnemy <= 0) {
+					int lane = (int)LoadLevel.instance.dataWaves[indexWave,WaveElement.enemyLane];
 					if (lane == 5) {
 						lane = Random.Range (0, 5); // random 0 1 2 3 4
 					} else if (lane == 6) {
@@ -36,7 +36,7 @@ public class WaveSpawner : MonoBehaviour {
 					SpawnEnemy (indexWave, lane);
 					timeNextEnemy = LoadLevel.instance.dataWaves[indexWave,WaveElement.timeNextEnemy];
 					indexEnemy++;
-				} else if(indexEnemy == LoadLevel.instance.dataWaves[indexWave,WaveElement.enemyNum]){
+				} else if(indexEnemy == (int)LoadLevel.instance.dataWaves[indexWave,WaveElement.enemyNum]){
 					indexEnemy = 0;
 					timeNextEnemy = 0;
 					timeNextWave = LoadLevel.instance.dataWaves[indexWave,WaveElement.timeNextWave];

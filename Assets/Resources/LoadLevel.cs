@@ -11,10 +11,10 @@ public class LoadLevel : MonoBehaviour {
 	public int modeID;
 	public int hpTroopCastle;
 	public int hpEnemyCastle;
-	public int timeStart;
+	public float timeStart;
 	public int totalWave;
 
-	public int[,] dataWaves;
+	public float[,] dataWaves;
 
 	public TextAsset xmlFile;
 	int level = 1;
@@ -47,7 +47,7 @@ public class LoadLevel : MonoBehaviour {
 			modeID = int.Parse (nodeModeID.InnerXml);
 			hpTroopCastle = int.Parse (nodehpTroopCastle.InnerXml);
 			hpEnemyCastle = int.Parse (nodehpEnemyCastle.InnerXml);
-			timeStart = int.Parse (nodeTimeStart.InnerXml);
+			timeStart = float.Parse (nodeTimeStart.InnerXml);
 			totalWave = int.Parse (nodeTotalWave.InnerXml);
 		}
 
@@ -55,7 +55,7 @@ public class LoadLevel : MonoBehaviour {
 		XmlNodeList myNodeWaveList = xmlDoc.SelectNodes (xmlPathLevelWave);
 
 		int index = 0;
-		dataWaves = new int[totalWave, WaveElement.totalElement];
+		dataWaves = new float[totalWave, WaveElement.totalElement];
 		foreach(XmlNode node in myNodeWaveList)
 		{
 			XmlNode enemyType = node.FirstChild;
@@ -64,12 +64,12 @@ public class LoadLevel : MonoBehaviour {
 			XmlNode enemyLane = enemyNum.NextSibling;
 			XmlNode timeNextEnemy = enemyLane.NextSibling;
 			XmlNode timeNextWave = timeNextEnemy.NextSibling;
-			dataWaves[index,WaveElement.enemyType] = int.Parse (enemyType.InnerXml);
-			dataWaves[index,WaveElement.enemyLevel] = int.Parse (enemyLevel.InnerXml);
-			dataWaves[index,WaveElement.enemyNum] = int.Parse (enemyNum.InnerXml);
-			dataWaves[index,WaveElement.enemyLane] = int.Parse (enemyLane.InnerXml);
-			dataWaves[index,WaveElement.timeNextEnemy] = int.Parse (timeNextEnemy.InnerXml);
-			dataWaves[index,WaveElement.timeNextWave] = int.Parse (timeNextWave.InnerXml);
+			dataWaves[index,WaveElement.enemyType] = float.Parse (enemyType.InnerXml);
+			dataWaves[index,WaveElement.enemyLevel] = float.Parse (enemyLevel.InnerXml);
+			dataWaves[index,WaveElement.enemyNum] = float.Parse (enemyNum.InnerXml);
+			dataWaves[index,WaveElement.enemyLane] = float.Parse (enemyLane.InnerXml);
+			dataWaves[index,WaveElement.timeNextEnemy] = float.Parse (timeNextEnemy.InnerXml);
+			dataWaves[index,WaveElement.timeNextWave] = float.Parse (timeNextWave.InnerXml);
 
 			index++;
 		}

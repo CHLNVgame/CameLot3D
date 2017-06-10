@@ -3,7 +3,7 @@
 		<ModeID>0</ModeID>
 		<HPTroopCastle>1</HPTroopCastle>
 		<HPEnemyCastle>1</HPEnemyCastle>
-		<TimeStart>5</TimeStart>
+		<TimeStart>3.5</TimeStart>
 		<TotalWave>5</TotalWave>
 		<Waves>
 			<EnemyType>0</EnemyType>
