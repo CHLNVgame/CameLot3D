@@ -14,6 +14,8 @@ public class EnemyManager : MonoBehaviour {
 	[Header("View")]
 	public bool isRun;
 	public bool isAttack;
+	public int goldRatio;
+	public int goldNumber;
 	public Animator anim;
 	public float speedSlow;
 	public float speedNormal;
@@ -35,6 +37,33 @@ public class EnemyManager : MonoBehaviour {
 
 		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
 
+	}
+
+	private float nextActtack = 0f;
+	// Update is called once per frame
+	public void UpdateAttack (string actionAnim) {
+
+		if (isRun)
+		{
+			transform.Translate (Vector3.forward * speed * Time.deltaTime);
+		}
+
+		if (target != null && nextActtack <= 0)
+		{
+			isAttack = true;
+			isRun = false;
+			anim.Play (actionAnim);
+			nextActtack = attackDelay;
+
+			TroopManager troop = target.GetComponent<TroopManager>();
+			troop.TakeDamge(damge);
+
+
+
+		}
+
+		if (nextActtack > 0)
+			nextActtack -= Time.deltaTime;
 	}
 
 	void UpdateTarget()
@@ -64,7 +93,7 @@ public class EnemyManager : MonoBehaviour {
 */
 		// Target on Lane
 		Vector3 checkTarget = transform.position + Vector3.up/2;
-	//	Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
+		Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
 		Ray ray = new Ray (checkTarget, Vector3.left);
 		RaycastHit[] hits = Physics.RaycastAll(ray, range);
 
@@ -72,8 +101,14 @@ public class EnemyManager : MonoBehaviour {
 		{
 			if (hit.transform.tag.Equals (stroopTag)) {
 				target = hit.transform;
-			//	Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
+				Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
 			}
+		}
+
+		if (target == null) {
+			isRun = true;
+			isAttack = false;
+			anim.Play (actionRun);
 		}
 	}	
 
