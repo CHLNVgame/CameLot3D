@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 9960df30283e47f4ca3e745bcc971bcc
-timeCreated: 1497071715
+guid: 4675637f048fc4c4bb75cd10fb10b59a
+timeCreated: 1497336513
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -44,10 +44,10 @@ ModelImporter:
     100072: Bip001 R UpperArm
     100074: Bip001 Spine
     100076: Bip001 Spine1
-    100078: //RootNode
-    100080: eyes
-    100082: helmet
-    100084: shield
+    100078: eyes
+    100080: helmet
+    100082: shield
+    100084: //RootNode
     100086: Skeletonl_base
     100088: sword
     400000: armor
@@ -89,10 +89,10 @@ ModelImporter:
     400072: Bip001 R UpperArm
     400074: Bip001 Spine
     400076: Bip001 Spine1
-    400078: //RootNode
-    400080: eyes
-    400082: helmet
-    400084: shield
+    400078: eyes
+    400080: helmet
+    400082: shield
+    400084: //RootNode
     400086: Skeletonl_base
     400088: sword
     2300000: eyes
@@ -137,7 +137,7 @@ ModelImporter:
       name: die
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 55
+      lastFrame: 50
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
