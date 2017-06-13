@@ -120,7 +120,7 @@ ModelImporter:
     4300004: cloak
     4300006: armor
     4300008: sword
-    7400000: hurt1
+    7400000: hurt
     9500000: //RootNode
     13700000: armor
     13700002: cloak
@@ -149,7 +149,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: hurt1
+      name: hurt
       takeName: Take 001
       firstFrame: 0
       lastFrame: 25

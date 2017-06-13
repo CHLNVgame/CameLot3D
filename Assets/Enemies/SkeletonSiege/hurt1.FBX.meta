@@ -107,7 +107,7 @@ ModelImporter:
     4300006: shield
     4300008: sword
     4300010: eyes
-    7400000: hurt1
+    7400000: hurt
     9500000: //RootNode
     13700000: armor
     13700002: helmet
@@ -134,7 +134,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: hurt1
+      name: hurt
       takeName: Take 001
       firstFrame: 0
       lastFrame: 25

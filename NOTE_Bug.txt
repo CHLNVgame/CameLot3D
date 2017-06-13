@@ -1,3 +1,1 @@
-Anim Archer walk wrong posision and no texture
-Anim Warrior die wrong posision
-Anim Buff no texture
+anim RoyalGaurd wrong position when play anim

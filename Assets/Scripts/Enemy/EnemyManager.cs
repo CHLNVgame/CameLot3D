@@ -24,15 +24,17 @@ public class EnemyManager : MonoBehaviour {
 	public const string actionAttack = "attack";
 	public const string actionDefend = "defend";
 	public const string actionBuff = "buff";
+	public const string actionHurt = "hurt";
 
 	string stroopTag = "Troop";
 
 	// Use this for initialization
 	void Start () {
+		anim = GetComponent<Animator> ();
 		isRun = true;
+		anim.SetBool ("isRun", isRun);
 		speedSlow = speed/2;
 		speedNormal = speed;
-		anim = GetComponent<Animator> ();
 		anim.Play (actionRun);
 
 		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
@@ -52,11 +54,13 @@ public class EnemyManager : MonoBehaviour {
 		{
 			isAttack = true;
 			isRun = false;
+			anim.SetBool ("isRun", isRun);
 			anim.Play (actionAnim);
 			nextActtack = attackDelay;
 
 			TroopManager troop = target.GetComponent<TroopManager>();
-		//	troop.TakeDamge(damge);
+			if(troop != null)
+				troop.TakeDamge(damge);
 
 
 
@@ -93,7 +97,7 @@ public class EnemyManager : MonoBehaviour {
 */
 		// Target on Lane
 		Vector3 checkTarget = transform.position + Vector3.up/2;
-		Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
+	//	Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
 		Ray ray = new Ray (checkTarget, Vector3.left);
 		RaycastHit[] hits = Physics.RaycastAll(ray, range);
 
@@ -101,13 +105,14 @@ public class EnemyManager : MonoBehaviour {
 		{
 			if (hit.transform.tag.Equals (stroopTag)) {
 				target = hit.transform;
-				Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
+	//			Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
 			}
 		}
 
 		if (target == null) {
 			isRun = true;
 			isAttack = false;
+			anim.SetBool ("isRun", isRun);
 			anim.Play (actionRun);
 		}
 	}	
@@ -123,9 +128,9 @@ public class EnemyManager : MonoBehaviour {
 	//	}
 	}
 
-	void TakeDamge(int damge)
+	public void TakeDamge(int damge)
 	{
-		
+		anim.Play (actionHurt);
 	}
 /*
 	void OnDrawGizmosSelected()
