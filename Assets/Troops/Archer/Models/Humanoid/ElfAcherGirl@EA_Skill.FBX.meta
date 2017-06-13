@@ -1,7 +1,7 @@
 fileFormatVersion: 2
 guid: c4302e7247a45e643a96f9aa866e9e0b
 ModelImporter:
-  serializedVersion: 16
+  serializedVersion: 19
   fileIDToRecycleName:
     100000: EA_Bip001
     100002: EA_Bip001 Footsteps
@@ -103,7 +103,7 @@ ModelImporter:
     400096: IK Chain002
     4300000: EA_Weapon
     4300002: Elf_Archer_Body
-    7400000: EA_Skill
+    7400000: attackspec
     9500000: //RootNode
     11100000: //RootNode
     13700000: EA_Weapon
@@ -115,17 +115,26 @@ ModelImporter:
   animations:
     legacyGenerateAnimations: 4
     bakeSimulation: 0
+    resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'EA_Bip001 L Thigh' has translation animation
+      that will be discarded.\n\t'EA_Bip001 R Thigh' has translation animation that
+      will be discarded.\n"
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
     animationCompression: 1
-    animationRotationError: .5
-    animationPositionError: .5
-    animationScaleError: .5
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: EA_Skill
+      name: attackspec
       takeName: Take 001
       firstFrame: 0
       lastFrame: 60
@@ -134,6 +143,7 @@ ModelImporter:
       level: 0
       cycleOffset: 0
       loop: 0
+      hasAdditiveReferencePose: 0
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
@@ -306,10 +316,11 @@ ModelImporter:
         weight: 1
       maskType: 0
       maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []
-    globalScale: .00999999978
+    globalScale: 0.01
     meshCompression: 0
     addColliders: 0
     importBlendShapes: 1
@@ -317,19 +328,21 @@ ModelImporter:
     generateSecondaryUV: 0
     useFileUnits: 1
     optimizeMeshForGPU: 1
+    keepQuads: 0
     weldVertices: 1
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
     secondaryUVPackMargin: 4
+    useFileScale: 0
   tangentSpace:
     normalSmoothAngle: 60
-    splitTangentsAcrossUV: 1
     normalImportMode: 0
-    tangentImportMode: 1
+    tangentImportMode: 4
   importAnimation: 1
   copyAvatar: 1
   humanDescription:
+    serializedVersion: 2
     human:
     - boneName: EA_Bip001 Pelvis
       humanName: Hips
@@ -501,260 +514,269 @@ ModelImporter:
         modified: 0
     skeleton:
     - name: ElfAcherGirl(Clone)
+      parentName: 
       position: {x: 0, y: 0, z: 0}
       rotation: {x: 0, y: 0, z: 0, w: 1}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EA_Bip001
-      position: {x: 0, y: .36137709, z: .0258642565}
-      rotation: {x: -.430459738, y: .560985208, z: .560985208, w: .430459738}
+      parentName: 
+      position: {x: 0, y: 0.3613771, z: 0.025864257}
+      rotation: {x: -0.43045974, y: 0.5609852, z: 0.5609852, w: 0.43045974}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EA_Bip001 Footsteps
-      position: {x: -0, y: 0, z: -.360806227}
-      rotation: {x: 0, y: 0, z: -.793352962, w: .608762026}
+      parentName: 
+      position: {x: -0, y: 0, z: -0.36080623}
+      rotation: {x: 0, y: 0, z: -0.79335296, w: 0.608762}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EA_Bip001 Pelvis
-      position: {x: .00181486015, y: .0067731915, z: 0}
-      rotation: {x: .464219898, y: -.533384621, z: -.395060956, w: -.586453438}
-      scale: {x: 1.00000012, y: 1, z: .999999821}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.0018148602, y: 0.0067731915, z: 0}
+      rotation: {x: 0.4642199, y: -0.5333846, z: -0.39506096, w: -0.58645344}
+      scale: {x: 1.0000001, y: 1, z: 0.9999998}
     - name: EA_Bip001 Spine
-      position: {x: -.0953946263, y: -.00935551897, z: -.00122641027}
-      rotation: {x: 2.04876005e-06, y: -6.09051426e-07, z: -.0485750586, w: -.99881959}
-      scale: {x: 1.00000012, y: 1, z: 1.00000036}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.095394626, y: -0.009355519, z: -0.0012264103}
+      rotation: {x: 0.00000204876, y: -0.0000006090514, z: -0.04857506, w: -0.9988196}
+      scale: {x: 1.0000001, y: 1, z: 1.0000004}
     - name: EA_Bip001 Spine1
-      position: {x: -.169591367, y: -.000142321587, z: 4.98056397e-06}
-      rotation: {x: -2.99684935e-08, y: 5.88686362e-08, z: -.0411788784, w: -.999151826}
-      scale: {x: .999999762, y: .99999994, z: .999999762}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.16959137, y: -0.00014232159, z: 0.000004980564}
+      rotation: {x: -0.000000029968493, y: 0.000000058868636, z: -0.04117888, w: -0.9991518}
+      scale: {x: 0.99999976, y: 0.99999994, z: 0.99999976}
     - name: EA_Bip001 Neck
-      position: {x: -.216882437, y: -.0614329465, z: 0}
-      rotation: {x: -1.51101514e-08, y: -1.55207971e-07, z: .0749093816, w: -.997190356}
-      scale: {x: 1, y: 1.00000012, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.21688244, y: -0.061432946, z: 0}
+      rotation: {x: -0.000000015110151, y: -0.00000015520797, z: 0.07490938, w: -0.99719036}
+      scale: {x: 1, y: 1.0000001, z: 0.99999994}
     - name: EA_Bip001 Head
-      position: {x: -.0406517796, y: -1.90734859e-08, z: -2.38418574e-09}
-      rotation: {x: 1.27517374e-08, y: 1.36394391e-07, z: -.0468580276, w: -.998901606}
-      scale: {x: .999999762, y: .999999821, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.04065178, y: -0.000000019073486, z: -0.0000000023841857}
+      rotation: {x: 0.000000012751737, y: 0.00000013639439, z: -0.046858028, w: -0.9989016}
+      scale: {x: 0.99999976, y: 0.9999998, z: 0.99999994}
     - name: EA_Bip001 HeadNub
-      position: {x: -.757925034, y: 1.90734859e-08, z: 0}
-      rotation: {x: 1.62981428e-09, y: 0, z: -0, w: 1}
-      scale: {x: 1.00000012, y: 1.00000012, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.75792503, y: 0.000000019073486, z: 0}
+      rotation: {x: 0.0000000016298143, y: 0, z: -0, w: 1}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1.0000001}
     - name: EA_Bip001 Ponytail1
-      position: {x: -.00561683625, y: -.208174244, z: -4.69684579e-07}
-      rotation: {x: -7.18744388e-08, y: 2.69721954e-06, z: -.999992669, w: .00383843482}
-      scale: {x: 1.00000036, y: 1, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.0056168362, y: -0.20817424, z: -0.00000046968458}
+      rotation: {x: -0.00000007187444, y: 0.0000026972195, z: -0.99999267, w: 0.0038384348}
+      scale: {x: 1.0000004, y: 1, z: 1.0000002}
     - name: EA_Bip001 Ponytail11
-      position: {x: -.158653796, y: -.000129280088, z: 0}
-      rotation: {x: 9.25905823e-08, y: -3.42209688e-07, z: .118239492, w: -.992985129}
-      scale: {x: .999999881, y: 1, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.1586538, y: -0.00012928009, z: 0}
+      rotation: {x: 0.00000009259058, y: -0.0000003422097, z: 0.11823949, w: -0.9929851}
+      scale: {x: 0.9999999, y: 1, z: 1}
     - name: EA_Bip001 Ponytail12
-      position: {x: -.163808405, y: -.000132446279, z: -3.57627861e-09}
-      rotation: {x: 2.19446399e-08, y: 1.99620644e-07, z: -.0580932498, w: .998311162}
-      scale: {x: 1.00000024, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.1638084, y: -0.00013244628, z: -0.0000000035762786}
+      rotation: {x: 0.00000002194464, y: 0.00000019962064, z: -0.05809325, w: 0.99831116}
+      scale: {x: 1.0000002, y: 0.9999999, z: 1}
     - name: EA_Bip001 Ponytail1Nub
-      position: {x: -.167444706, y: 0, z: -1.7881393e-09}
-      rotation: {x: .707388282, y: -.706825256, z: -9.77011268e-07, w: -9.78866865e-07}
-      scale: {x: 1.00000012, y: 1.00000012, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.1674447, y: 0, z: -0.0000000017881393}
+      rotation: {x: 0.7073883, y: -0.70682526, z: -0.0000009770113, w: -0.0000009788669}
+      scale: {x: 1.0000001, y: 1.0000001, z: 1}
     - name: EA_Bip001 L Clavicle
-      position: {x: .0370452106, y: .00626245467, z: .048393596}
-      rotation: {x: .582628012, y: .0703330711, z: -.808193862, w: .0492004827}
-      scale: {x: 1.00000024, y: .99999994, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.03704521, y: 0.0062624547, z: 0.048393596}
+      rotation: {x: 0.582628, y: 0.07033307, z: -0.80819386, w: 0.049200483}
+      scale: {x: 1.0000002, y: 0.99999994, z: 1}
     - name: EA_Bip001 L UpperArm
-      position: {x: -.140609846, y: -4.76837148e-09, z: 7.62939436e-08}
-      rotation: {x: .0372344665, y: .134151816, z: .0183244627, w: .990091443}
-      scale: {x: .999999821, y: 1.00000024, z: 1.00000024}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14060985, y: -0.0000000047683715, z: 0.000000076293944}
+      rotation: {x: 0.037234467, y: 0.13415182, z: 0.018324463, w: 0.99009144}
+      scale: {x: 0.9999998, y: 1.0000002, z: 1.0000002}
     - name: EA_Bip001 L Forearm
-      position: {x: -.176505774, y: 0, z: 0}
-      rotation: {x: -.0018907577, y: .0171763524, z: .0283074155, w: .999449909}
-      scale: {x: 1.00000012, y: .999999881, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.17650577, y: 0, z: 0}
+      rotation: {x: -0.0018907577, y: 0.017176352, z: 0.028307416, w: 0.9994499}
+      scale: {x: 1.0000001, y: 0.9999999, z: 0.9999999}
     - name: EA_Bip001 L Hand
-      position: {x: -.148918644, y: 9.53674295e-09, z: 0}
-      rotation: {x: .703369141, y: .228442252, z: .0722008571, w: -.669233263}
-      scale: {x: 1.00000036, y: 1.00000036, z: 1.00000048}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14891864, y: 0.000000009536743, z: 0}
+      rotation: {x: 0.70336914, y: 0.22844225, z: 0.07220086, w: -0.66923326}
+      scale: {x: 1.0000004, y: 1.0000004, z: 1.0000005}
     - name: EA_Bow_Ctl
-      position: {x: -.0568782799, y: .0228883736, z: -.0105616516}
-      rotation: {x: .46666047, y: .861233294, z: -.178341165, w: .0932722166}
-      scale: {x: 1.81514537, y: 1.81514513, z: 1.81514513}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.05687828, y: 0.022888374, z: -0.010561652}
+      rotation: {x: 0.46666047, y: 0.8612333, z: -0.17834117, w: 0.09327222}
+      scale: {x: 1.8151454, y: 1.8151451, z: 1.8151451}
     - name: EA_BowPoint001_Ctl
-      position: {x: -.00338954921, y: .0541494153, z: -.0063081691}
-      rotation: {x: .500000119, y: .500000119, z: .5, w: .499999791}
-      scale: {x: .900836706, y: .900836647, z: .900836825}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.0033895492, y: 0.054149415, z: -0.006308169}
+      rotation: {x: 0.5000001, y: 0.5000001, z: 0.5, w: 0.4999998}
+      scale: {x: 0.9008367, y: 0.90083665, z: 0.9008368}
     - name: EA_Bow_Center_Bone001
-      position: {x: 9.53674295e-09, y: -3.81469718e-08, z: 3.81469718e-08}
-      rotation: {x: .23140049, y: -.45392406, z: .348517179, w: -.786729038}
-      scale: {x: .493791014, y: .493790984, z: .493791342}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.000000009536743, y: -0.000000038146972, z: 0.000000038146972}
+      rotation: {x: 0.23140049, y: -0.45392406, z: 0.34851718, w: -0.78672904}
+      scale: {x: 0.493791, y: 0.49379098, z: 0.49379134}
     - name: IK Chain001
-      position: {x: -.149163529, y: .0469545051, z: .00612442009}
-      rotation: {x: -.5, y: -.50000006, z: -.5, w: .50000006}
-      scale: {x: 1.00000012, y: 1, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14916353, y: 0.046954505, z: 0.00612442}
+      rotation: {x: -0.5, y: -0.50000006, z: -0.5, w: 0.50000006}
+      scale: {x: 1.0000001, y: 1, z: 1}
     - name: IK Chain002
-      position: {x: -.149793088, y: -.0452269837, z: .00506160734}
-      rotation: {x: -.5, y: -.50000006, z: -.5, w: .50000006}
-      scale: {x: 1.00000012, y: 1, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14979309, y: -0.045226984, z: 0.0050616073}
+      rotation: {x: -0.5, y: -0.50000006, z: -0.5, w: 0.50000006}
+      scale: {x: 1.0000001, y: 1, z: 1}
     - name: EA_Bow_U_Bone001
-      position: {x: -.000215988155, y: -.00435059518, z: .0592407249}
-      rotation: {x: -.211114466, y: .630691648, z: .519614398, w: .536339223}
-      scale: {x: .444825083, y: .444824845, z: .444825023}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.00021598816, y: -0.004350595, z: 0.059240725}
+      rotation: {x: -0.21111447, y: 0.63069165, z: 0.5196144, w: 0.5363392}
+      scale: {x: 0.44482508, y: 0.44482484, z: 0.44482502}
     - name: EA_Bow_U_Bone002
-      position: {x: -.248137578, y: -1.14440915e-07, z: 3.81469718e-08}
-      rotation: {x: -1.14152829e-08, y: -2.88056214e-07, z: -.034813717, w: .999393821}
-      scale: {x: 1.00000024, y: 1.00000012, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.24813758, y: -0.000000114440915, z: 0.000000038146972}
+      rotation: {x: -0.000000011415283, y: -0.0000002880562, z: -0.034813717, w: 0.9993938}
+      scale: {x: 1.0000002, y: 1.0000001, z: 0.9999999}
     - name: EA_Bow_U_Bone003
-      position: {x: -.228556663, y: 0, z: 0}
-      rotation: {x: -.000321140018, y: .00161675492, z: -.0352472141, w: .999377251}
-      scale: {x: .99999994, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.22855666, y: 0, z: 0}
+      rotation: {x: -0.00032114002, y: 0.0016167549, z: -0.035247214, w: 0.99937725}
+      scale: {x: 0.99999994, y: 0.9999999, z: 1}
     - name: EA_Bow_Line_Bone001
-      position: {x: -.212423474, y: -.000620384177, z: -.000829658471}
-      rotation: {x: .480605036, y: -.876937151, z: -2.55557921e-07, w: -1.293606e-07}
-      scale: {x: .999999821, y: .99999994, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.21242347, y: -0.0006203842, z: -0.0008296585}
+      rotation: {x: 0.48060504, y: -0.87693715, z: -0.00000025555792, w: -0.0000001293606}
+      scale: {x: 0.9999998, y: 0.99999994, z: 1}
     - name: EA_Bow_LineEnd_Bone001
-      position: {x: -.642123878, y: 0, z: 0}
-      rotation: {x: -2.98023188e-08, y: 2.98023188e-08, z: 8.94069601e-08, w: -1}
-      scale: {x: 1, y: .999999881, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.6421239, y: 0, z: 0}
+      rotation: {x: -0.000000029802319, y: 0.000000029802319, z: 0.00000008940696,
+        w: -1}
+      scale: {x: 1, y: 0.9999999, z: 1.0000001}
     - name: EA_Bow_M_Bone001
-      position: {x: -7.62939436e-08, y: .0441640355, z: 4.76837148e-09}
-      rotation: {x: .123556271, y: -.678884804, z: -.561768413, w: -.456361115}
-      scale: {x: .444825083, y: .444825053, z: .444825113}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.000000076293944, y: 0.044164035, z: 0.0000000047683715}
+      rotation: {x: 0.12355627, y: -0.6788848, z: -0.5617684, w: -0.45636111}
+      scale: {x: 0.44482508, y: 0.44482505, z: 0.4448251}
     - name: EA_Bow_D_Bone001
-      position: {x: -.00124710076, y: -.0197990499, z: -.0631265342}
-      rotation: {x: .506019294, y: .514992118, z: -.681202054, w: .121207796}
-      scale: {x: .444825053, y: .444825053, z: .444825113}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.0012471008, y: -0.01979905, z: -0.063126534}
+      rotation: {x: 0.5060193, y: 0.5149921, z: -0.68120205, w: 0.121207796}
+      scale: {x: 0.44482505, y: 0.44482505, z: 0.4448251}
     - name: EA_Bow_D_Bone002
-      position: {x: -.244397029, y: 3.81469718e-08, z: 0}
-      rotation: {x: 5.9036303e-08, y: -6.97520761e-08, z: -.0370578617, w: .999313176}
-      scale: {x: .999999523, y: .999999762, z: .999999762}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.24439703, y: 0.000000038146972, z: 0}
+      rotation: {x: 0.000000059036303, y: -0.000000069752076, z: -0.03705786, w: 0.9993132}
+      scale: {x: 0.9999995, y: 0.99999976, z: 0.99999976}
     - name: EA_Bow_D_Bone003
-      position: {x: -.241430372, y: -5.24520874e-06, z: -3.81469718e-08}
-      rotation: {x: -8.97090358e-05, y: .000486587902, z: .00229372596, w: .999997318}
-      scale: {x: 1.00000012, y: 1, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.24143037, y: -0.0000052452087, z: -0.000000038146972}
+      rotation: {x: -0.000089709036, y: 0.0004865879, z: 0.002293726, w: 0.9999973}
+      scale: {x: 1.0000001, y: 1, z: 1.0000001}
     - name: EA_Bow_Line_Bone002
-      position: {x: -.215051487, y: .0150653077, z: -.000244941708}
-      rotation: {x: -.467409045, y: .88404119, z: 4.14653641e-07, w: 2.38001505e-07}
-      scale: {x: .999999642, y: .999999642, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.21505149, y: 0.015065308, z: -0.0002449417}
+      rotation: {x: -0.46740904, y: 0.8840412, z: 0.00000041465364, w: 0.0000002380015}
+      scale: {x: 0.99999964, y: 0.99999964, z: 0.99999994}
     - name: EA_Bow_LineEnd_Bone002
-      position: {x: -.618570864, y: 0, z: 0}
-      rotation: {x: 7.45059481e-08, y: -1.49011594e-08, z: -1.49011647e-08, w: 1}
-      scale: {x: 1, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.61857086, y: 0, z: 0}
+      rotation: {x: 0.00000007450595, y: -0.000000014901159, z: -0.000000014901165,
+        w: 1}
+      scale: {x: 1, y: 0.9999999, z: 1}
     - name: EA_Bip001 R Clavicle
-      position: {x: .0370452106, y: .00626272196, z: -.0483939052}
-      rotation: {x: -.583309352, y: -.0649311543, z: -.807483792, w: .0591957755}
-      scale: {x: .99999994, y: .999999702, z: .999999821}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.03704521, y: 0.006262722, z: -0.048393905}
+      rotation: {x: -0.58330935, y: -0.064931154, z: -0.8074838, w: 0.059195776}
+      scale: {x: 0.99999994, y: 0.9999997, z: 0.9999998}
     - name: EA_Bip001 R UpperArm
-      position: {x: -.140609846, y: -9.53674295e-09, z: -7.62939436e-08}
-      rotation: {x: -.0351719148, y: -.131980553, z: .0314625539, w: .990128398}
-      scale: {x: .999999821, y: 1, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14060985, y: -0.000000009536743, z: -0.000000076293944}
+      rotation: {x: -0.035171915, y: -0.13198055, z: 0.031462554, w: 0.9901284}
+      scale: {x: 0.9999998, y: 1, z: 1.0000001}
     - name: EA_Bip001 R Forearm
-      position: {x: -.176505774, y: -9.53674295e-09, z: 0}
-      rotation: {x: .0019270872, y: -.0175046995, z: .0292136297, w: .99941802}
-      scale: {x: .99999994, y: .999999821, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.17650577, y: -0.000000009536743, z: 0}
+      rotation: {x: 0.0019270872, y: -0.0175047, z: 0.02921363, w: 0.999418}
+      scale: {x: 0.99999994, y: 0.9999998, z: 1}
     - name: EA_Bip001 R Hand
-      position: {x: -.148918658, y: -2.86102289e-08, z: 0}
-      rotation: {x: .702170312, y: .0809860006, z: .0810505301, w: .702729642}
-      scale: {x: 1.00000012, y: 1, z: 1.00000036}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14891866, y: -0.000000028610229, z: 0}
+      rotation: {x: 0.7021703, y: 0.080986, z: 0.08105053, w: 0.70272964}
+      scale: {x: 1.0000001, y: 1, z: 1.0000004}
     - name: EA_Bip001 L Thigh
-      position: {x: .105701752, y: -.00789098442, z: .132377803}
-      rotation: {x: -.0793439895, y: -.993287623, z: -.0159416106, w: -.082644172}
-      scale: {x: .99999994, y: 1, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.10570175, y: -0.007890984, z: 0.1323778}
+      rotation: {x: -0.07934399, y: -0.9932876, z: -0.01594161, w: -0.08264417}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
     - name: EA_Bip001 L Calf
-      position: {x: -.173040882, y: -3.81469718e-08, z: -1.90734859e-08}
-      rotation: {x: -3.50495526e-08, y: 3.75997899e-09, z: .0293204226, w: .999570131}
-      scale: {x: .99999994, y: 1.00000012, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.17304088, y: -0.000000038146972, z: -0.000000019073486}
+      rotation: {x: -0.000000035049553, y: 0.000000003759979, z: 0.029320423, w: 0.99957013}
+      scale: {x: 0.99999994, y: 1.0000001, z: 1.0000001}
     - name: EA_Bip001 L Foot
-      position: {x: -.143057749, y: 0, z: -1.90734859e-08}
-      rotation: {x: .0172801763, y: .0823746026, z: -.121385999, w: .98903048}
-      scale: {x: .999999762, y: .999999881, z: 1}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14305775, y: 0, z: -0.000000019073486}
+      rotation: {x: 0.017280176, y: 0.0823746, z: -0.121386, w: 0.9890305}
+      scale: {x: 0.99999976, y: 0.9999999, z: 1}
     - name: EA_Bip001 L Toe0
-      position: {x: -.0782720521, y: .114907593, z: -1.90734859e-08}
-      rotation: {x: .0977958664, y: .0977960899, z: -.700310886, w: .70031178}
-      scale: {x: .999999881, y: 1, z: .999999881}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.07827205, y: 0.11490759, z: -0.000000019073486}
+      rotation: {x: 0.09779587, y: 0.09779609, z: -0.7003109, w: 0.7003118}
+      scale: {x: 0.9999999, y: 1, z: 0.9999999}
     - name: EA_Bip001 L Toe0Nub
-      position: {x: -.0116460035, y: 3.72529022e-11, z: 0}
-      rotation: {x: -3.14200921e-15, y: 5.77372206e-30, z: 1, w: 1.83758927e-15}
+      parentName: 
+      position: {x: -0.011646003, y: 3.7252902e-11, z: 0}
+      rotation: {x: -3.1420092e-15, y: 5.773722e-30, z: 1, w: 1.8375893e-15}
       scale: {x: -1, y: -1, z: -1}
-      transformModified: 1
     - name: EA_Bip001 R Thigh
-      position: {x: .0856432691, y: .00475132, z: -.143948957}
-      rotation: {x: -.0793438852, y: -.993287742, z: .015938919, w: .0826445967}
-      scale: {x: .999999583, y: 1, z: .999999762}
-      transformModified: 1
+      parentName: 
+      position: {x: 0.08564327, y: 0.00475132, z: -0.14394896}
+      rotation: {x: -0.079343885, y: -0.99328774, z: 0.015938919, w: 0.0826446}
+      scale: {x: 0.9999996, y: 1, z: 0.99999976}
     - name: EA_Bip001 R Calf
-      position: {x: -.173040926, y: 4.76837148e-09, z: 0}
-      rotation: {x: -4.47197372e-08, y: -4.17695318e-08, z: .0293203518, w: .999570072}
-      scale: {x: .999999762, y: .999999702, z: .999999583}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.17304093, y: 0.0000000047683715, z: 0}
+      rotation: {x: -0.000000044719737, y: -0.000000041769532, z: 0.029320352, w: 0.9995701}
+      scale: {x: 0.99999976, y: 0.9999997, z: 0.9999996}
     - name: EA_Bip001 R Foot
-      position: {x: -.143057764, y: -4.76837148e-09, z: 0}
-      rotation: {x: -.0172800887, y: -.0823746622, z: -.121385999, w: .98903048}
-      scale: {x: 1.00000024, y: 1.00000036, z: 1.00000012}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.14305776, y: -0.0000000047683715, z: 0}
+      rotation: {x: -0.017280089, y: -0.08237466, z: -0.121386, w: 0.9890305}
+      scale: {x: 1.0000002, y: 1.0000004, z: 1.0000001}
     - name: EA_Bip001 R Toe0
-      position: {x: -.0782720521, y: .114907593, z: 1.90734859e-08}
-      rotation: {x: -.151998192, y: -.15199849, z: -.690576732, w: .690577149}
+      parentName: 
+      position: {x: -0.07827205, y: 0.11490759, z: 0.000000019073486}
+      rotation: {x: -0.15199819, y: -0.15199849, z: -0.69057673, w: 0.69057715}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: EA_Bip001 R Toe0Nub
-      position: {x: -.0116460323, y: -7.45058043e-11, z: 0}
-      rotation: {x: -3.55271368e-15, y: 1.654766e-15, z: -1.77635705e-15, w: 1}
-      scale: {x: .99999994, y: 1, z: .99999994}
-      transformModified: 1
+      parentName: 
+      position: {x: -0.011646032, y: -7.4505804e-11, z: 0}
+      rotation: {x: -3.5527137e-15, y: 1.654766e-15, z: -1.776357e-15, w: 1}
+      scale: {x: 0.99999994, y: 1, z: 0.99999994}
     - name: EA_Weapon
-      position: {x: -.847504914, y: .866822541, z: -.24745205}
-      rotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
+      parentName: 
+      position: {x: -0.8475049, y: 0.86682254, z: -0.24745205}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
     - name: Elf_Archer_Body
+      parentName: 
       position: {x: 0, y: 0, z: 0}
-      rotation: {x: -.707106829, y: 0, z: -0, w: .707106829}
+      rotation: {x: -0.7071068, y: 0, z: -0, w: 0.7071068}
       scale: {x: 1, y: 1, z: 1}
-      transformModified: 1
-    armTwist: .5
-    foreArmTwist: .5
-    upperLegTwist: .5
-    legTwist: .5
-    armStretch: .0500000007
-    legStretch: .0500000007
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
     feetSpacing: 0
     rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {fileID: 9000000, guid: d1ff311c469df224bb32369dc7306fc5,
     type: 3}
   animationType: 3
+  humanoidOversampling: 1
   additionalBone: 0
   userData: 
+  assetBundleName: 
+  assetBundleVariant: 
