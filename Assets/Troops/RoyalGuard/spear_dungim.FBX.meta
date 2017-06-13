@@ -91,7 +91,7 @@ ModelImporter:
     3300000: spear
     4300000: knight
     4300002: spear
-    7400000: Take 001
+    7400000: idle
     9500000: //RootNode
     13700000: knight
   materials:
@@ -105,7 +105,10 @@ ModelImporter:
     optimizeGameObjects: 0
     motionNodeName: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\n\t'Bip001 L Clavicle' has translation animation
+      that will be discarded.\n\t'Bip001 R Clavicle' has translation animation that
+      will be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -116,7 +119,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: idle
       takeName: Take 001
       firstFrame: 0
       lastFrame: 27

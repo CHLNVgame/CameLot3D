@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 9823e2a2a7f93294c9e0f68193286bc6
+guid: 9496336688cfe2345ba78c60924cb136
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
@@ -102,7 +102,7 @@ ModelImporter:
     4300016: FOOT_L
     4300018: ARM_R
     4300020: HAND_R
-    7400000: M hit
+    7400000: attack
     9500000: //RootNode
     11100000: //RootNode
     13700000: ARM_L
@@ -138,10 +138,10 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: M hit
+      name: attack
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 14
+      lastFrame: 25
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
