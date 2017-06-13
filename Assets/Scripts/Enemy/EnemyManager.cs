@@ -56,7 +56,7 @@ public class EnemyManager : MonoBehaviour {
 			nextActtack = attackDelay;
 
 			TroopManager troop = target.GetComponent<TroopManager>();
-			troop.TakeDamge(damge);
+		//	troop.TakeDamge(damge);
 
 
 

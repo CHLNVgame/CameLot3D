@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 74dcb49cc7783a9419d91511f006fefb
-timeCreated: 1497071715
+guid: 153479016d1592d438ea93197bfc0bd5
+timeCreated: 1497329203
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -44,9 +44,9 @@ ModelImporter:
     100072: Bip001 R UpperArm
     100074: Bip001 Spine
     100076: Bip001 Spine1
-    100078: //RootNode
-    100080: eyes
-    100082: helmet
+    100078: eyes
+    100080: helmet
+    100082: //RootNode
     100084: shield
     100086: Skeletonl_base
     100088: sword
@@ -89,9 +89,9 @@ ModelImporter:
     400072: Bip001 R UpperArm
     400074: Bip001 Spine
     400076: Bip001 Spine1
-    400078: //RootNode
-    400080: eyes
-    400082: helmet
+    400078: eyes
+    400080: helmet
+    400082: //RootNode
     400084: shield
     400086: Skeletonl_base
     400088: sword
@@ -137,7 +137,7 @@ ModelImporter:
       name: defend
       takeName: Take 001
       firstFrame: 0
-      lastFrame: 40
+      lastFrame: 20
       wrapMode: 0
       orientationOffsetY: 0
       level: 0
@@ -325,7 +325,7 @@ ModelImporter:
     rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
     hasTranslationDoF: 0
     hasExtraRoot: 0
-    skeletonHasParents: 1
+    skeletonHasParents: 0
   lastHumanDescriptionAvatarSource: {instanceID: 0}
   animationType: 2
   humanoidOversampling: 1
