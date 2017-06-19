@@ -9,7 +9,7 @@
 			<EnemyType>0</EnemyType>
 			<EnemyLevel>1</EnemyLevel>
 			<EnemyNum>1</EnemyNum>
-			<EnemyLane>2</EnemyLane>
+			<EnemyLane>0</EnemyLane>
 			<TimeNextEnemy>3</TimeNextEnemy>
 			<TimeNextWave>7</TimeNextWave>
 		</Waves>
