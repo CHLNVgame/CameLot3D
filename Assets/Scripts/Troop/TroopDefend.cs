@@ -7,7 +7,7 @@ public class TroopDefend : TroopManager {
 	void Update () {
 
 
-		UpdateAttack (actionAttack);
+		UpdateAttack (actionDefend);
 	}
 
 }
