@@ -6,6 +6,7 @@ public class TroopRange : TroopManager {
 
 	public GameObject arrowFire;
 	public Transform posArrow;
+	public bool isRoBinHodd;
 
 	private float nextActtack = 0f;
 	// Update is called once per frame
@@ -30,12 +31,32 @@ public class TroopRange : TroopManager {
 	// Wait anim a second
 	IEnumerator CreateArrow()
 	{
-		yield return new WaitForSeconds (0.5f);
-		GameObject arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
-		Arrow src = arrow.GetComponent<Arrow> ();
-		if (src != null) 
+		GameObject arrow;
+		Arrow src;
+		if (isRoBinHodd) {
+			yield return new WaitForSeconds (0.15f);
+			arrow = (GameObject)Instantiate (arrowFire, posArrow.position+(new Vector3(0,0,-0.2f)), transform.rotation);
+			src = arrow.GetComponent<Arrow> ();
+			if (src != null) 
+			{
+				src.SeekArrow (damge / 2, target.transform);
+			}
+			yield return new WaitForSeconds (0.6f);
+			arrow = (GameObject)Instantiate (arrowFire, posArrow.position+(new Vector3(0,0,0.2f)), transform.rotation);
+			src = arrow.GetComponent<Arrow> ();
+			if (src != null) 
+			{
+				src.SeekArrow (damge / 2, target.transform);
+			}
+		}
+		else
 		{
-			src.SeekArrow (damge, target.transform);
+			yield return new WaitForSeconds (0.5f);
+			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
+			src = arrow.GetComponent<Arrow> ();
+			if (src != null) {
+				src.SeekArrow (damge, target.transform);
+			}
 		}
 	}
 

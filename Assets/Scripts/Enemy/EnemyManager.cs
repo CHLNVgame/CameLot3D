@@ -42,6 +42,7 @@ public class EnemyManager : MonoBehaviour {
 
 	}
 
+
 	private float nextActtack = 0f;
 	// Update is called once per frame
 	public void UpdateAttack (string actionAnim) {
