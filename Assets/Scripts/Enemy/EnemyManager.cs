@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyManager : MonoBehaviour {
 
 	[Header("Settings")]
+	public Transform posHit;
 	public int hp;
 	public float speed;
 	public int damge;

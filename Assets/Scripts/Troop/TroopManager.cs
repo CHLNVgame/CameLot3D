@@ -52,36 +52,11 @@ public class TroopManager : MonoBehaviour {
 		{
 			if (hit.transform.tag.Equals (enemyTag)) {
 				target = hit.transform;
+			//	target = hit.transform.GetComponent<EnemyManager> ().posHit;
 				Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
 			}
 		}
 	}
-
-	private float nextActtack = 0f;
-	// Update is called once per frame
-	public void UpdateAttack (string actionAnim) {
-
-		if (isRun)
-		{
-			transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		}
-
-		if (target != null && nextActtack <= 0)
-		{
-			Debug.Log(" xxxxxxxxxxxxxxxxxxxxxxxxxxx ");
-			anim.Play (actionAnim);
-			nextActtack = attackDelay;
-
-			EnemyManager enemy = target.GetComponent<EnemyManager>();
-			if(enemy != null)
-			enemy.TakeDamge(damge);
-		}
-
-		if (nextActtack > 0)
-			nextActtack -= Time.deltaTime;
-	}
-
-
 
 	public void TakeDamge(int value)
 	{
