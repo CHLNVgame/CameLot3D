@@ -20,7 +20,7 @@ public class Arrow : MonoBehaviour {
 	void Start()
 	{
 		enemyScr = target.GetComponent<EnemyManager> ();
-		Destroy (gameObject, 1f);
+		Destroy (gameObject, 1.5f);
 
 	}
 

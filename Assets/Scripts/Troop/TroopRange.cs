@@ -34,7 +34,7 @@ public class TroopRange : TroopManager {
 	{
 		GameObject arrow;
 		Arrow src;
-		if (isRoBinHodd) {
+	/*	if (isRoBinHodd) {
 			yield return new WaitForSeconds (0.15f);
 			arrow = (GameObject)Instantiate (arrowFire, posArrow.position + (new Vector3 (0, 0, -0.2f)), transform.rotation);
 			src = arrow.GetComponent<Arrow> ();
@@ -47,7 +47,8 @@ public class TroopRange : TroopManager {
 			if (src != null) {
 				src.SeekArrow (damge / 2, target.transform, false);
 			}
-		} else if (isWizard)
+		} else */
+		if (isWizard)
 		{
 			yield return new WaitForSeconds (0.4f);
 			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
