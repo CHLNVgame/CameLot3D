@@ -43,7 +43,8 @@ public class TroopManager : MonoBehaviour {
 	void UpdateTarget()
 	{
 		// Target on Lane
-		Vector3 checkTarget = transform.position + Vector3.up/2;
+		Vector3 checkTarget = transform.position + Vector3.right + Vector3.up/2;
+		Debug.DrawLine (checkTarget, checkTarget + Vector3.up*5, Color.black);
 		Debug.DrawLine (checkTarget, checkTarget + Vector3.right*range, Color.red);
 		Ray ray = new Ray (checkTarget, Vector3.right);
 		RaycastHit[] hits = Physics.RaycastAll(ray, range);

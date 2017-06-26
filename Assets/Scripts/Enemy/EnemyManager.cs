@@ -12,6 +12,10 @@ public class EnemyManager : MonoBehaviour {
 	public float range;
 	public float attackDelay = 10.0f;
 
+	public Material slowMesh;
+	public Material normalMesh;
+	public SkinnedMeshRenderer skinMesh;
+
 	[Header("View")]
 	public bool isRun;
 	public bool isAttack;
@@ -28,6 +32,19 @@ public class EnemyManager : MonoBehaviour {
 	public const string actionHurt = "hurt";
 
 	string stroopTag = "Troop";
+
+	public void TakeSlow(){
+		skinMesh.material = slowMesh; 
+		speed = speed/2;
+		//CancelInvoke();
+		Invoke("CancelSlow",2f);
+	}
+
+	void CancelSlow(){
+		speed = speed*2;
+		skinMesh.material = normalMesh; 
+	}
+
 
 	// Use this for initialization
 	void Start () {
@@ -99,7 +116,7 @@ public class EnemyManager : MonoBehaviour {
 */
 		// Target on Lane
 		Vector3 checkTarget = transform.position + Vector3.up/2;
-	//	Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
+		Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
 		Ray ray = new Ray (checkTarget, Vector3.left);
 		RaycastHit[] hits = Physics.RaycastAll(ray, range);
 
@@ -107,7 +124,7 @@ public class EnemyManager : MonoBehaviour {
 		{
 			if (hit.transform.tag.Equals (stroopTag)) {
 				target = hit.transform;
-	//			Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
+				Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
 			}
 		}
 
