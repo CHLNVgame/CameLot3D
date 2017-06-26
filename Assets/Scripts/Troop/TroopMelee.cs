@@ -18,14 +18,20 @@ public class TroopMelee : TroopManager {
 		{
 			anim.Play (actionAttack);
 			nextActtack = attackDelay;
+			StartCoroutine (CreateDamge ());
 
-			EnemyManager enemy = target.GetComponent<EnemyManager>();
-			if(enemy != null)
-				enemy.TakeDamge(damge);
 		}
 
 		if (nextActtack > 0)
 			nextActtack -= Time.deltaTime;
+	}
+
+	IEnumerator CreateDamge()
+	{
+		yield return new WaitForSeconds (0.5f);
+		EnemyManager enemy = target.GetComponent<EnemyManager>();
+		if(enemy != null)
+			enemy.TakeDamge(damge);
 	}
 
 }

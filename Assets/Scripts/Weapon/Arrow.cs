@@ -5,13 +5,13 @@ using UnityEngine;
 public class Arrow : MonoBehaviour {
 
 	public GameObject effectHit;
-	private int Speed = 5;
-	private int Damge;
+	private float Speed = 6;
+	private float Damge;
 	private Transform target;
 	private bool slowDamge;
 	EnemyManager enemyScr;
 	// Use this for initialization
-	public void SeekArrow (int damge, Transform tar, bool slow) {
+	public void SeekArrow (float damge, Transform tar, bool slow) {
 		Damge = damge;
 		target = tar;
 		slowDamge = slow;

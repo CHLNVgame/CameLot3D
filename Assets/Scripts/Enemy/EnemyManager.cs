@@ -1,24 +1,30 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour {
 
+	public enum choiseName{isGrunt, isArcher, isWarrior, isFlute, isSiege};
 	[Header("Settings")]
+	public choiseName nameEnemy;
 	public Transform posHit;
-	public int hp;
-	public float speed;
-	public int damge;
-	public float range;
-	public float attackDelay = 10.0f;
+
+	[Header("View")]
+	private int level =0;
+	private float hp;
+	private float speed;
+	private float damge;
+	private float range;
+	private float attackDelay ;
 
 	public Material slowMesh;
 	public Material normalMesh;
 	public SkinnedMeshRenderer skinMesh;
 
-	[Header("View")]
 	public bool isRun;
 	public bool isAttack;
+	public bool isHurt;
 	public int goldRatio;
 	public int goldNumber;
 	public Animator anim;
@@ -30,24 +36,29 @@ public class EnemyManager : MonoBehaviour {
 	public const string actionDefend = "defend";
 	public const string actionBuff = "buff";
 	public const string actionHurt = "hurt";
+	public const string actionDie = "die";
 
 	string stroopTag = "Troop";
 
+
+
 	public void TakeSlow(){
 		skinMesh.material = slowMesh; 
-		speed = speed/2;
+		speed = speedSlow;
 		//CancelInvoke();
 		Invoke("CancelSlow",2f);
+
 	}
 
 	void CancelSlow(){
-		speed = speed*2;
+		speed = speedNormal;
 		skinMesh.material = normalMesh; 
 	}
 
 
 	// Use this for initialization
 	void Start () {
+		GetAttributes ();
 		anim = GetComponent<Animator> ();
 		isRun = true;
 		anim.SetBool ("isRun", isRun);
@@ -58,13 +69,12 @@ public class EnemyManager : MonoBehaviour {
 		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
 
 	}
-
-
+		
 	private float nextActtack = 0f;
 	// Update is called once per frame
 	public void UpdateAttack (string actionAnim) {
 
-		if (isRun)
+		if (isRun && !isHurt)
 		{
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		}
@@ -136,20 +146,23 @@ public class EnemyManager : MonoBehaviour {
 		}
 	}	
 
-	// Call from Animation
-	public void HitPlayer(){
-		
-	//	if(CurrentAttackPlayer){
-	////		CurrentAttackPlayer.GetComponent<CharController>().Hit(Damage);
-	//	}else{
-	//		anim.Play("walk");
-	//		isWalk =true;
-	//	}
-	}
-
-	public void TakeDamge(int damge)
+	public void TakeDamge(float damge)
 	{
+		hp -= damge;
+		isHurt = true;
+		Invoke ("DelayHurt", 0.5f);
+		if (hp <= 0) 
+		{
+			anim.Play (actionDie);
+			Destroy (gameObject, 1f);
+			return;
+		}
 		anim.Play (actionHurt);
+
+	}
+	public void DelayHurt()
+	{
+		isHurt = false;
 	}
 /*
 	void OnDrawGizmosSelected()
@@ -158,4 +171,42 @@ public class EnemyManager : MonoBehaviour {
 		Gizmos.DrawWireSphere (transform.position, range);
 	}
 */
+	void GetAttributes()
+	{
+		if (nameEnemy == choiseName.isGrunt) {
+			hp = Attributes.SKELETON_GRUNT_ATT [level, Attributes.HP_ENEMY];
+			speed = Attributes.SKELETON_GRUNT_ATT [level, Attributes.SPEED_ENEMY];
+			damge = Attributes.SKELETON_GRUNT_ATT [level, Attributes.DAMGE_ENEMY];
+			range = Attributes.SKELETON_GRUNT_ATT [level, Attributes.RANGE_ENEMY];
+			attackDelay = Attributes.SKELETON_GRUNT_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
+		}
+		if (nameEnemy == choiseName.isArcher) {
+			hp = Attributes.SKELETON_ARCHER_ATT [level, Attributes.HP_ENEMY];
+			speed = Attributes.SKELETON_ARCHER_ATT [level, Attributes.SPEED_ENEMY];
+			damge = Attributes.SKELETON_ARCHER_ATT [level, Attributes.DAMGE_ENEMY];
+			range = Attributes.SKELETON_ARCHER_ATT [level, Attributes.RANGE_ENEMY];
+			attackDelay = Attributes.SKELETON_ARCHER_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
+		}
+		if (nameEnemy == choiseName.isWarrior) {
+			hp = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.HP_ENEMY];
+			speed = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.SPEED_ENEMY];
+			damge = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.DAMGE_ENEMY];
+			range = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.RANGE_ENEMY];
+			attackDelay = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
+		}
+		if (nameEnemy == choiseName.isFlute) {
+			hp = Attributes.SKELETON_FLUTE_ATT [level, Attributes.HP_ENEMY];
+			speed = Attributes.SKELETON_FLUTE_ATT [level, Attributes.SPEED_ENEMY];
+			damge = Attributes.SKELETON_FLUTE_ATT [level, Attributes.DAMGE_ENEMY];
+			range = Attributes.SKELETON_FLUTE_ATT [level, Attributes.RANGE_ENEMY];
+			attackDelay = Attributes.SKELETON_FLUTE_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
+		}
+		if (nameEnemy == choiseName.isSiege) {
+			hp = Attributes.SKELETON_SIEGE_ATT [level, Attributes.HP_ENEMY];
+			speed = Attributes.SKELETON_SIEGE_ATT [level, Attributes.SPEED_ENEMY];
+			damge = Attributes.SKELETON_SIEGE_ATT [level, Attributes.DAMGE_ENEMY];
+			range = Attributes.SKELETON_SIEGE_ATT [level, Attributes.RANGE_ENEMY];
+			attackDelay = Attributes.SKELETON_SIEGE_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
+		}
+	}
 }
