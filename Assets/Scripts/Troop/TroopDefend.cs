@@ -28,4 +28,12 @@ public class TroopDefend : TroopManager {
 			nextActtack -= Time.deltaTime;
 	}
 
+	IEnumerator CreateDamge()
+	{
+		yield return new WaitForSeconds (0.5f);
+		EnemyManager enemy = target.GetComponent<EnemyManager>();
+		if(enemy != null)
+			enemy.TakeDamge(damge);
+	}
+
 }

@@ -34,27 +34,13 @@ public class TroopRange : TroopManager {
 	{
 		GameObject arrow;
 		Arrow src;
-	/*	if (isRoBinHodd) {
-			yield return new WaitForSeconds (0.15f);
-			arrow = (GameObject)Instantiate (arrowFire, posArrow.position + (new Vector3 (0, 0, -0.2f)), transform.rotation);
-			src = arrow.GetComponent<Arrow> ();
-			if (src != null) {
-				src.SeekArrow (damge / 2, target.transform, false);
-			}
-			yield return new WaitForSeconds (0.6f);
-			arrow = (GameObject)Instantiate (arrowFire, posArrow.position + (new Vector3 (0, 0, 0.2f)), transform.rotation);
-			src = arrow.GetComponent<Arrow> ();
-			if (src != null) {
-				src.SeekArrow (damge / 2, target.transform, false);
-			}
-		} else */
 		if (isWizard)
 		{
 			yield return new WaitForSeconds (0.4f);
 			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
 			src = arrow.GetComponent<Arrow> ();
 			if (src != null) {
-				src.SeekArrow (damge, target.transform, true);
+				src.SeekArrow (damge, target.transform, true, false);
 			}
 		}
 		else
@@ -63,7 +49,7 @@ public class TroopRange : TroopManager {
 			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
 			src = arrow.GetComponent<Arrow> ();
 			if (src != null) {
-				src.SeekArrow (damge, target.transform, false);
+				src.SeekArrow (damge, target.transform, false, false);
 			}
 		}
 

@@ -5,14 +5,9 @@ using UnityEngine;
 public class TroopFly : TroopManager {
 	
 
-	public GameObject arrowFire;
-	public Transform posArrow;
-	public bool isRoBinHodd;
-	public bool isWizard;
-
 	private float nextActtack = 0f;
 	// Update is called once per frame
-	public void Update () {
+	void Update() {
 
 		if (isRun)
 		{
@@ -23,38 +18,15 @@ public class TroopFly : TroopManager {
 		{
 			anim.Play (actionAttack);
 			nextActtack = attackDelay;
-			StartCoroutine(CreateArrow ());
+
+			EnemyManager enemy = target.GetComponent<EnemyManager>();
+			if(enemy != null)
+				enemy.TakeDamge(damge);
 		}
 
 		if (nextActtack > 0)
 			nextActtack -= Time.deltaTime;
 	}
 
-	// Wait anim a second
-	IEnumerator CreateArrow()
-	{
-		GameObject arrow;
-		Arrow src;
-		if (isWizard)
-		{
-			yield return new WaitForSeconds (0.4f);
-			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
-			src = arrow.GetComponent<Arrow> ();
-			if (src != null) {
-				src.SeekArrow (damge, target.transform, true);
-			}
-		}
-		else
-		{
-			yield return new WaitForSeconds (0.55f);
-			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
-			src = arrow.GetComponent<Arrow> ();
-			if (src != null) {
-				src.SeekArrow (damge, target.transform, false);
-			}
-		}
-
-		target = null;
-	}
 
 }

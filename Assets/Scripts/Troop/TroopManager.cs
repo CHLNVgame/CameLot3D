@@ -7,6 +7,7 @@ public class TroopManager : MonoBehaviour {
 	public enum choiseName{isStreetFighter, isRobinhood, isRoyalGuard, isRocky, isDefendGuardian, isBoomer, isCentaur, isWizard, isDragon};
 	[Header("Settings")]
 	public choiseName nameTroop;
+	public Transform posHit;
 	public int level = 0;
 
 	[Header("View")]
@@ -46,6 +47,19 @@ public class TroopManager : MonoBehaviour {
 
 		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
 
+	}
+
+	public void TakeSlow(){
+	//	skinMesh.material = slowMesh; 
+	//	speed = speedSlow;
+		//CancelInvoke();
+		Invoke("CancelSlow",2f);
+
+	}
+
+	void CancelSlow(){
+		//speed = speedNormal;
+		//skinMesh.material = normalMesh; 
 	}
 
 	void UpdateTarget()

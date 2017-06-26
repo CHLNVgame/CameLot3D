@@ -11,12 +11,12 @@ public class EnemyManager : MonoBehaviour {
 	public Transform posHit;
 
 	[Header("View")]
-	private int level =0;
-	private float hp;
-	private float speed;
-	private float damge;
-	private float range;
-	private float attackDelay ;
+	protected int level =0;
+	protected float hp;
+	protected float speed;
+	protected float damge;
+	protected float range;
+	protected float attackDelay ;
 
 	public Material slowMesh;
 	public Material normalMesh;
@@ -70,34 +70,6 @@ public class EnemyManager : MonoBehaviour {
 
 	}
 		
-	private float nextActtack = 0f;
-	// Update is called once per frame
-	public void UpdateAttack (string actionAnim) {
-
-		if (isRun && !isHurt)
-		{
-			transform.Translate (Vector3.forward * speed * Time.deltaTime);
-		}
-
-		if (target != null && nextActtack <= 0)
-		{
-			isAttack = true;
-			isRun = false;
-			anim.SetBool ("isRun", isRun);
-			anim.Play (actionAnim);
-			nextActtack = attackDelay;
-
-			TroopManager troop = target.GetComponent<TroopManager>();
-			if(troop != null)
-				troop.TakeDamge(damge);
-
-
-
-		}
-
-		if (nextActtack > 0)
-			nextActtack -= Time.deltaTime;
-	}
 
 	void UpdateTarget()
 	{
