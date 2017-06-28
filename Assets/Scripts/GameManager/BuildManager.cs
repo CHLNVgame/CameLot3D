@@ -6,7 +6,10 @@ public class BuildManager : MonoBehaviour {
 
     public static BuildManager instance;
 
+    public GameObject[] troopPrefab;
     public bool isPlay;
+
+
 
     private void Awake()
     {
@@ -18,17 +21,19 @@ public class BuildManager : MonoBehaviour {
 
     }
 
-    public GameObject standardStreetFighterPrefab;
-
     private void Start()
     {
         isPlay = false;
-        streetFighterToBuild = standardStreetFighterPrefab;
     }
-    private GameObject streetFighterToBuild;
+    private GameObject troopToBuild;
 
-    public GameObject GetStreetFighterToBuild()
+    public void SetTroopToBuild(int index)
     {
-        return streetFighterToBuild;
+        troopToBuild = troopPrefab[index];
+    }
+
+    public GameObject GetTroopToBuild()
+    {
+        return troopToBuild;
     }
 }

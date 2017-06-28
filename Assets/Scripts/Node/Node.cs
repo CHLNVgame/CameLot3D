@@ -11,22 +11,26 @@ public class Node : MonoBehaviour {
     private Renderer rend;
     private Material nodeNormal;
 
-
+    BuildManager buildManager;
     void Start()
     {
         rend = GetComponent<Renderer>();
         nodeNormal = rend.material;
+        buildManager = BuildManager.instance;
     }
 
     void OnMouseDown()
     {
+        if (!BuildManager.instance.isPlay)
+            return;
+
         if (troop != null)
         {
             Debug.Log(" Can't build there");
         }
 
-        GameObject streetFighter = BuildManager.instance.GetStreetFighterToBuild();
-        troop = (GameObject)Instantiate(streetFighter, transform.position, transform.rotation);
+        GameObject troopPrefab = buildManager.GetTroopToBuild();
+        troop = (GameObject)Instantiate(troopPrefab, transform.position, transform.rotation);
     }
 
     void OnMouseEnter()

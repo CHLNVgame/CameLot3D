@@ -15,8 +15,12 @@ public class Shop : MonoBehaviour {
     private int troopCount;
     private int maxTroopInLevel = 9;
 
+    BuildManager buildManager;
+
     private void Start()
     {
+        buildManager = BuildManager.instance;
+
         listTroopInGame = new Transform[troopShop.childCount];
         arrayTroopID = new int[troopShop.childCount];
         for (int i = 0; i < listTroopInGame.Length; i++)
@@ -54,9 +58,9 @@ public class Shop : MonoBehaviour {
     {
         int index = int.Parse(indexTroop);
 
-        if (BuildManager.instance.isPlay)
+        if (buildManager.isPlay)
         {
-
+            buildManager.SetTroopToBuild(arrayTroopID[index]);
         }
         else
         {
