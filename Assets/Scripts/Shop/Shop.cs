@@ -13,9 +13,12 @@ public class Shop : MonoBehaviour {
     private Transform[] listTroopInGame;
     private Transform[] listFillTroopInGame;
     private Transform[] listTroopSelect;
+    private Transform[] listTroopCost;
+
     private int[] arrayTroopID;
     private float[] arrayCountDown;
-    private float[] arrayTimeCountDown;
+    private float[] arrayTimeNextTroop;
+    private float[] arrayCostTroop;
     private int troopCount;
     private int idItemShop;
     private int maxTroopInLevel = 9;
@@ -36,18 +39,22 @@ public class Shop : MonoBehaviour {
         buildManager = BuildManager.instance;
         listTroopInGame = new Transform[maxTroopInLevel];
         listFillTroopInGame = new Transform[maxTroopInLevel];
+        listTroopCost = new Transform[maxTroopInLevel];
         arrayTroopID = new int[maxTroopInLevel];
         arrayCountDown = new float[maxTroopInLevel];
-        arrayTimeCountDown = new float[maxTroopInLevel];
+        arrayTimeNextTroop = new float[maxTroopInLevel];
+        arrayCostTroop = new float[maxTroopInLevel];
 
         for (int i = 0; i < listTroopInGame.Length; i++)
         {
             listTroopInGame[i] = troopShop.GetChild(i);
             listFillTroopInGame[i] = listTroopInGame[i].GetChild(0);
+            listTroopCost[i] = listTroopInGame[i].GetChild(1);
 
             arrayTroopID[i] = -1;
             arrayCountDown[i] = 0;
-            arrayTimeCountDown[i] = 1;
+            arrayTimeNextTroop[i] = 1;
+            arrayCostTroop[i] = 0;
         }
 
        
@@ -61,16 +68,21 @@ public class Shop : MonoBehaviour {
         troopCount = 0;
     }
 
-    public void SelectTroopToShop(string idTroop)
+    public void SelectTroopToShop(string id)
     {
-        int id = int.Parse(idTroop);
+        int idTroop = int.Parse(id);
 
         if (troopCount < maxTroopInLevel)
         {
             listTroopInGame[troopCount].gameObject.SetActive(true);
-            listTroopInGame[troopCount].GetComponent<Image>().sprite = listTroopSelect[id].GetComponent<Image>().sprite;
-            listTroopSelect[id].GetComponent<Button>().interactable = false;
-            arrayTroopID[troopCount] = id;
+            listTroopInGame[troopCount].GetComponent<Image>().sprite = listTroopSelect[idTroop].GetComponent<Image>().sprite;
+            listTroopSelect[idTroop].GetComponent<Button>().interactable = false;
+            arrayTroopID[troopCount] = idTroop;
+            arrayTimeNextTroop[troopCount] = Attributes.TIME_NEXT_TROOP[idTroop];
+            arrayCostTroop[troopCount] = Attributes.FOOD_REQUIRE_TROOP[idTroop];
+            listTroopCost[troopCount].GetComponent<Text>().text = arrayCostTroop[troopCount].ToString();
+
+
             troopCount++;
         }
     }
@@ -120,25 +132,24 @@ public class Shop : MonoBehaviour {
                 arrayCountDown[i] -= Time.deltaTime;
                 if (arrayCountDown[i] < 0)
                     arrayCountDown[i] = 0;
-                Debug.Log(" arrayCountDown[i]: " + arrayCountDown[i]);
-                listFillTroopInGame[i].GetComponent<Image>().fillAmount = arrayCountDown[i] / arrayTimeCountDown[i];
+                listFillTroopInGame[i].GetComponent<Image>().fillAmount = arrayCountDown[i] / arrayTimeNextTroop[i];
             }
             else
             {
-            //    Debug.Log(" arrayCountDown[i]: " + arrayCountDown[i]);
                 listFillTroopInGame[i].gameObject.SetActive(false);
             }
         }
     }
 
-    public void SetTimeCountDown(float time)
+    public void SetTimeCountDown()
     {
-        Debug.Log(" +++++++++++++++++++++ time: " + time);
-        arrayTimeCountDown[idItemShop] = time;
-        arrayCountDown[idItemShop] = time;
+         arrayCountDown[idItemShop] = arrayTimeNextTroop[idItemShop];
         listFillTroopInGame[idItemShop].gameObject.SetActive(true);
     }
 
-
+    public void ExitGame()
+    {
+        Application.Quit();
+    }
 
 }

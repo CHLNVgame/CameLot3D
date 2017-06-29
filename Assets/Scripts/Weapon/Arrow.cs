@@ -44,7 +44,6 @@ public class Arrow : MonoBehaviour {
 		Debug.Log (" distanceThisFrame: "+distanceThisFrame + " +++ magnitude: " +dir.magnitude);
 		if (dir.magnitude <= distanceThisFrame) 
 		{
-			Debug.Log (" Hittttttttttttttt ");
 			GameObject effect = (GameObject)Instantiate (effectHit, transform.position, Quaternion.identity);
 			Destroy (effect, 1f);
 			Destroy (gameObject);
