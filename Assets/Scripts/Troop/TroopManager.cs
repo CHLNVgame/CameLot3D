@@ -12,14 +12,14 @@ public class TroopManager : MonoBehaviour {
 
 	[Header("View")]
 	 float hp;
-	protected float speed;
-	protected float damge;
-	protected float damgeSpec;
-	protected float range;
-	protected float attackDelay;
-	protected float foodRequire;
-	protected float timeNextTroop;
-	protected float ratioSpecSkill;
+    public float speed;
+    public float damge;
+    public float damgeSpec;
+    public float range;
+    public float attackDelay;
+    public float foodRequire;
+	public float timeNextTroop;
+    public float ratioSpecSkill;
 
 	public bool isRun;
 	public bool isHurt;
@@ -38,8 +38,13 @@ public class TroopManager : MonoBehaviour {
 
 	string enemyTag = "Enemy";
 
-	void Start () {
-		GetAttribute ();
+    private void Awake()
+    {
+        GetAttribute();
+    }
+
+    void Start () {
+		
 		anim = GetComponent<Animator> ();
 		isRun = false;
 
@@ -112,6 +117,7 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			timeNextTroop = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.TIME_NEXT_TROOP];
 			ratioSpecSkill = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.RATIO_SPEC_TROOP];
+            Debug.Log(" aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa:  "+ timeNextTroop);
 		}
 		if (nameTroop == choiseName.isRobinhood) {
 			hp = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.HP_TROOP];

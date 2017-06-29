@@ -36,4 +36,14 @@ public class BuildManager : MonoBehaviour {
     {
         return troopToBuild;
     }
+
+    public void FreeCursor()
+    {
+        troopToBuild = null;
+    }
+
+    public bool CheckTroopToBuild()
+    {
+        return troopToBuild != null ? true : false;
+    }
 }

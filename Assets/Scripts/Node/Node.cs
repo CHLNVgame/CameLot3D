@@ -30,12 +30,19 @@ public class Node : MonoBehaviour {
         }
 
         GameObject troopPrefab = buildManager.GetTroopToBuild();
+        Debug.Log("  +++++++++++++++ 111 ");
         troop = (GameObject)Instantiate(troopPrefab, transform.position, transform.rotation);
+
+        Debug.Log("  +++++++++222 ");
+        TroopManager troopSrc = troop.GetComponent<TroopManager>();
+        Shop.instance.SetTimeCountDown(troopSrc.timeNextTroop);
+
+        buildManager.FreeCursor(); // Free Cursor when build done
     }
 
     void OnMouseEnter()
     {
-        if(troop == null)
+        if(troop == null && buildManager.CheckTroopToBuild())
             rend.material = nodeEnter;
     }
     void OnMouseExit()
