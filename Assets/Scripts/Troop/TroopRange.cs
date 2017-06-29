@@ -52,8 +52,6 @@ public class TroopRange : TroopManager {
 				src.SeekArrow (damge, target.transform, false, false);
 			}
 		}
-
-		target = null;
 	}
 
 }

@@ -9,7 +9,7 @@ public class TroopManager : MonoBehaviour {
 	public choiseName nameTroop;
 	public Transform posHit;
 	public int level = 0;
-
+    public bool isTroopDefend;
 	[Header("View")]
 	 float hp;
     public float speed;
@@ -34,6 +34,7 @@ public class TroopManager : MonoBehaviour {
 	public const string actionHurt = "hurt";
 	public const string actionDie = "die";
 
+
 	string enemyTag = "Enemy";
 
     private void Awake()
@@ -45,8 +46,10 @@ public class TroopManager : MonoBehaviour {
 		
 		anim = GetComponent<Animator> ();
 		isRun = false;
-
-		anim.Play (actionIdle);
+        if (isTroopDefend)
+            anim.Play(actionDefend);
+        else
+		    anim.Play (actionIdle);
 
 		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
 
@@ -76,7 +79,7 @@ public class TroopManager : MonoBehaviour {
 
 		foreach (RaycastHit hit in hits) 
 		{
-			if (hit.transform.tag.Equals (enemyTag)) {
+			if (hit.transform.tag.Equals (enemyTag) && target == null) {
 				target = hit.transform;
 			//	target = hit.transform.GetComponent<EnemyManager> ().posHit;
 				Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);

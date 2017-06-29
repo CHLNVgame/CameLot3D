@@ -34,6 +34,8 @@ public class TroopDefend : TroopManager {
 		EnemyManager enemy = target.GetComponent<EnemyManager>();
 		if(enemy != null)
 			enemy.TakeDamge(damge);
-	}
 
+        target = null;
+    }
+    
 }

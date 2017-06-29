@@ -14,7 +14,7 @@ public class TroopMelee : TroopManager {
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		}
 
-		if (target != null && nextActtack <= 0)
+		if (target != null && nextActtack <= 0 && !isTroopDefend)
 		{
 			anim.Play (actionAttack);
 			nextActtack = attackDelay;
@@ -32,6 +32,8 @@ public class TroopMelee : TroopManager {
 		EnemyManager enemy = target.GetComponent<EnemyManager>();
 		if(enemy != null)
 			enemy.TakeDamge(damge);
-	}
+
+        target = null;
+    }
 
 }

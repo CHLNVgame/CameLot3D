@@ -102,7 +102,7 @@ ModelImporter:
     4300016: FOOT_L
     4300018: ARM_R
     4300020: HAND_R
-    7400000: M idle 2
+    7400000: idle
     9500000: //RootNode
     11100000: //RootNode
     13700000: ARM_L
@@ -126,8 +126,13 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: 
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\n\t'Bip001 L Thigh' has translation animation
+      that will be discarded.\n\t'Bip001 R Thigh' has translation animation that will
+      be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -138,7 +143,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: M idle 2
+      name: idle
       takeName: Take 001
       firstFrame: 0
       lastFrame: 20
@@ -148,11 +153,11 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
-      loopBlendOrientation: 0
-      loopBlendPositionY: 0
-      loopBlendPositionXZ: 0
+      loopBlendOrientation: 1
+      loopBlendPositionY: 1
+      loopBlendPositionXZ: 1
       keepOriginalOrientation: 0
       keepOriginalPositionY: 1
       keepOriginalPositionXZ: 0

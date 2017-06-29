@@ -6,22 +6,16 @@ using UnityEngine.UI;
 public class EnemyManager : MonoBehaviour {
 
 	public enum choiseName{isGrunt, isArcher, isWarrior, isFlute, isSiege};
-	[Header("Settings")]
+	[Header("Option Setting")]
 	public choiseName nameEnemy;
 	public Transform posHit;
+    public bool isEnemyDefend;
+    public Material slowMesh;
+    public Material normalMesh;
+    public SkinnedMeshRenderer skinMesh;
 
-	[Header("View")]
-	protected int level =0;
-	protected float hp;
-	protected float speed;
-	protected float damge;
-	protected float range;
-	protected float attackDelay ;
-
-	public Material slowMesh;
-	public Material normalMesh;
-	public SkinnedMeshRenderer skinMesh;
-
+    [Header("Option View")]
+	
 	public bool isRun;
 	public bool isAttack;
 	public bool isHurt;
@@ -38,7 +32,14 @@ public class EnemyManager : MonoBehaviour {
 	public const string actionHurt = "hurt";
 	public const string actionDie = "die";
 
-	string stroopTag = "Troop";
+    protected int level = 0;
+    protected float hp;
+    protected float speed;
+    protected float damge;
+    protected float range;
+    protected float attackDelay;
+
+    string stroopTag = "Troop";
 
 
 
@@ -104,7 +105,7 @@ public class EnemyManager : MonoBehaviour {
 
 		foreach (RaycastHit hit in hits) 
 		{
-			if (hit.transform.tag.Equals (stroopTag)) {
+			if (hit.transform.tag.Equals (stroopTag) && target == null) {
 				target = hit.transform;
 				Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
 			}

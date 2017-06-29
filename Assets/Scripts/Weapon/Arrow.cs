@@ -26,6 +26,7 @@ public class Arrow : MonoBehaviour {
 			troopScr = target.GetComponent<TroopManager> ();
 		else
 			enemyScr = target.GetComponent<EnemyManager> ();
+
 		Destroy (gameObject, 1.5f);
 
 	}
@@ -33,7 +34,15 @@ public class Arrow : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		Vector3 dir;
-		if (targetTroop) {
+
+        if (target == null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
+
+        if (targetTroop) {
 			dir = troopScr.posHit.position - transform.position;
 		} else {
 			dir = enemyScr.posHit.position - transform.position;
@@ -41,7 +50,7 @@ public class Arrow : MonoBehaviour {
 				
 		float distanceThisFrame = Speed * Time.deltaTime;
 
-		Debug.Log (" distanceThisFrame: "+distanceThisFrame + " +++ magnitude: " +dir.magnitude);
+	//	Debug.Log (" distanceThisFrame: "+distanceThisFrame + " +++ magnitude: " +dir.magnitude);
 		if (dir.magnitude <= distanceThisFrame) 
 		{
 			GameObject effect = (GameObject)Instantiate (effectHit, transform.position, Quaternion.identity);
@@ -59,10 +68,19 @@ public class Arrow : MonoBehaviour {
 					enemyScr.TakeSlow ();
 				}
 			}
+
+            target = null;
 			return;
 		}
 		transform.Translate (dir.normalized * distanceThisFrame, Space.World);
-		transform.LookAt (enemyScr.posHit);
+        if (targetTroop)
+        {
+            transform.LookAt(troopScr.posHit);
+        }
+        else
+        {
+            transform.LookAt(enemyScr.posHit);
+        }
 	}
 
 }

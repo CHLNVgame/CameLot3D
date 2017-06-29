@@ -20,7 +20,7 @@ public class EnemyDefend : EnemyManager {
 			anim.SetBool ("isRun", isRun);
 			anim.Play (actionDefend);
 			nextActtack = attackDelay;
-			StartCoroutine (CreateDamge ());
+	//		StartCoroutine (CreateDamge ());
 		}
 
 		if (nextActtack > 0)
