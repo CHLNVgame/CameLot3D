@@ -8,42 +8,34 @@
 		<Waves>
 			<EnemyType>0</EnemyType>
 			<EnemyLevel>1</EnemyLevel>
+			<EnemyNum>1</EnemyNum>
+			<EnemyLane>5</EnemyLane>
+			<TimeNextEnemy>2</TimeNextEnemy>
+			<TimeNextWave>5</TimeNextWave>
+		</Waves>
+		<Waves>
+			<EnemyType>0</EnemyType>
+			<EnemyLevel>1</EnemyLevel>
 			<EnemyNum>3</EnemyNum>
-			<EnemyLane>4</EnemyLane>
+			<EnemyLane>5</EnemyLane>
+			<TimeNextEnemy>3</TimeNextEnemy>
+			<TimeNextWave>6</TimeNextWave>
+		</Waves>
+		<Waves>
+			<EnemyType>0</EnemyType>
+			<EnemyLevel>1</EnemyLevel>
+			<EnemyNum>4</EnemyNum>
+			<EnemyLane>5</EnemyLane>
 			<TimeNextEnemy>3</TimeNextEnemy>
 			<TimeNextWave>7</TimeNextWave>
 		</Waves>
 		<Waves>
-			<EnemyType>1</EnemyType>
+			<EnemyType>0</EnemyType>
 			<EnemyLevel>1</EnemyLevel>
-			<EnemyNum>3</EnemyNum>
-			<EnemyLane>1</EnemyLane>
-			<TimeNextEnemy>3</TimeNextEnemy>
-			<TimeNextWave>5</TimeNextWave>
-		</Waves>
-		<Waves>
-			<EnemyType>2</EnemyType>
-			<EnemyLevel>1</EnemyLevel>
-			<EnemyNum>3</EnemyNum>
-			<EnemyLane>2</EnemyLane>
-			<TimeNextEnemy>3</TimeNextEnemy>
-			<TimeNextWave>4</TimeNextWave>
-		</Waves>
-		<Waves>
-			<EnemyType>3</EnemyType>
-			<EnemyLevel>1</EnemyLevel>
-			<EnemyNum>3</EnemyNum>
-			<EnemyLane>3</EnemyLane>
-			<TimeNextEnemy>3</TimeNextEnemy>
-			<TimeNextWave>8</TimeNextWave>
-		</Waves>
-		<Waves>
-			<EnemyType>4</EnemyType>
-			<EnemyLevel>1</EnemyLevel>
-			<EnemyNum>3</EnemyNum>
-			<EnemyLane>0</EnemyLane>
-			<TimeNextEnemy>3</TimeNextEnemy>
-			<TimeNextWave>10</TimeNextWave>
+			<EnemyNum>4</EnemyNum>
+			<EnemyLane>5</EnemyLane>
+			<TimeNextEnemy>2</TimeNextEnemy>
+			<TimeNextWave>0</TimeNextWave>
 		</Waves>
 	</Level1>
 	<Level2>
