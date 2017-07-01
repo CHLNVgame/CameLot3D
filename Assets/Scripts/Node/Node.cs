@@ -33,7 +33,7 @@ public class Node : MonoBehaviour {
         troop = (GameObject)Instantiate(troopPrefab, transform.position, transform.rotation);
 
         TroopManager troopSrc = troop.GetComponent<TroopManager>();
-        Shop.instance.SetTimeCountDown();
+        Shop.instance.PurchaseFinished();
 
         buildManager.FreeCursor(); // Free Cursor when build done
     }
