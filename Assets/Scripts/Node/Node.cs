@@ -30,12 +30,15 @@ public class Node : MonoBehaviour {
         }
 
         GameObject troopPrefab = buildManager.GetTroopToBuild();
-        troop = (GameObject)Instantiate(troopPrefab, transform.position, transform.rotation);
+        if (troopPrefab != null)
+        {
+            troop = (GameObject)Instantiate(troopPrefab, transform.position, transform.rotation);
 
-        TroopManager troopSrc = troop.GetComponent<TroopManager>();
-        Shop.instance.PurchaseFinished();
+            TroopManager troopSrc = troop.GetComponent<TroopManager>();
+            Shop.instance.PurchaseFinished();
 
-        buildManager.FreeCursor(); // Free Cursor when build done
+            buildManager.FreeCursor(); // Free Cursor when build done
+        }
     }
 
     void OnMouseEnter()

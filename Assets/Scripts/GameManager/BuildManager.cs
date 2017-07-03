@@ -24,6 +24,7 @@ public class BuildManager : MonoBehaviour {
     private void Start()
     {
         isPlay = false;
+        FreeCursor();
     }
     private GameObject troopToBuild;
 

@@ -9,6 +9,7 @@ public class Shop : MonoBehaviour {
     public Transform troopShop;
     public Transform troopSelect;
     public Transform troopBoard;
+    public Transform foodShow;
 	
 	public int food;
 	public int maxFood;
@@ -23,7 +24,7 @@ public class Shop : MonoBehaviour {
     private int[] arrayTroopID;
     private float[] arrayCountDown;
     private float[] arrayTimeNextTroop;
-    private float[] arrayCostTroop;
+    private int[] arrayCostTroop;
     private int troopCount;
     private int idItemShop;
     private int maxTroopInLevel = 9;
@@ -53,7 +54,7 @@ public class Shop : MonoBehaviour {
         arrayTroopID = new int[maxTroopInLevel];
         arrayCountDown = new float[maxTroopInLevel];
         arrayTimeNextTroop = new float[maxTroopInLevel];
-        arrayCostTroop = new float[maxTroopInLevel];
+        arrayCostTroop = new int[maxTroopInLevel];
 
         for (int i = 0; i < listTroopInGame.Length; i++)
         {
@@ -76,13 +77,16 @@ public class Shop : MonoBehaviour {
         }
 
         troopCount = 0;
-		
+        ShowFood();
+
+
     }
 	
 	void Update()
     {
 		
 		RegendFood();
+        ShowFood();
         CountDownNextTroop();
     }
 	
@@ -134,7 +138,7 @@ public class Shop : MonoBehaviour {
             listTroopSelect[idTroop].GetComponent<Button>().interactable = false;
             arrayTroopID[troopCount] = idTroop;
             arrayTimeNextTroop[troopCount] = Attributes.TIME_NEXT_TROOP[idTroop];
-            arrayCostTroop[troopCount] = Attributes.FOOD_REQUIRE_TROOP[idTroop];
+            arrayCostTroop[troopCount] = (int)Attributes.FOOD_REQUIRE_TROOP[idTroop];
             listTroopCost[troopCount].GetComponent<Text>().text = arrayCostTroop[troopCount].ToString();
 
 
@@ -148,7 +152,7 @@ public class Shop : MonoBehaviour {
 
         if (buildManager.isPlay)
         {
-			if(buildManager.food >= arrayCostTroop[idItemShop])
+			if(food >= arrayCostTroop[idItemShop])
 				buildManager.SetTroopToBuild(arrayTroopID[idItemShop]);
 			else
 				Debug.Log(" Food is not enough: "+food);
@@ -184,6 +188,11 @@ public class Shop : MonoBehaviour {
 		food -= arrayCostTroop[idItemShop];
         arrayCountDown[idItemShop] = arrayTimeNextTroop[idItemShop];
         listFillTroopInGame[idItemShop].gameObject.SetActive(true);
+    }
+
+    public void ShowFood()
+    {
+        foodShow.GetComponent<Text>().text = "Food: " + food;
     }
 
     public void ExitGame()
