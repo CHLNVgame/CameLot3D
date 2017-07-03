@@ -28,6 +28,7 @@ public class Shop : MonoBehaviour {
     private int troopCount;
     private int idItemShop;
     private int maxTroopInLevel = 9;
+    private int totalTroop;
 
     BuildManager buildManager;
 
@@ -47,14 +48,14 @@ public class Shop : MonoBehaviour {
 		maxFood = 1000;
 		foodRegend = 15;
 		timeRegendFood = 10; // remember modify in function Update() value default
-		
-        listTroopInGame = new Transform[maxTroopInLevel];
-        listFillTroopInGame = new Transform[maxTroopInLevel];
-        listTroopCost = new Transform[maxTroopInLevel];
-        arrayTroopID = new int[maxTroopInLevel];
-        arrayCountDown = new float[maxTroopInLevel];
-        arrayTimeNextTroop = new float[maxTroopInLevel];
-        arrayCostTroop = new int[maxTroopInLevel];
+        totalTroop = troopShop.childCount;
+        listTroopInGame = new Transform[totalTroop];
+        listFillTroopInGame = new Transform[totalTroop];
+        listTroopCost = new Transform[totalTroop];
+        arrayTroopID = new int[totalTroop];
+        arrayCountDown = new float[totalTroop];
+        arrayTimeNextTroop = new float[totalTroop];
+        arrayCostTroop = new int[totalTroop];
 
         for (int i = 0; i < listTroopInGame.Length; i++)
         {
@@ -84,33 +85,30 @@ public class Shop : MonoBehaviour {
 	
 	void Update()
     {
-		
-		RegendFood();
+        if (buildManager.isPlay)
+        {
+            timeRegendFood -= Time.deltaTime;
+            if (timeRegendFood <= 0)
+            {
+                timeRegendFood = 10; // remember modify in function Start() value default
+                RegendFood(foodRegend);
+            }
+        }
         ShowFood();
         CountDownNextTroop();
     }
 	
-	void RegendFood()
+	public void RegendFood(int foodValue)
 	{
-		if (buildManager.isPlay)
-		{
-			timeRegendFood -= Time.deltaTime;
-			if(timeRegendFood <= 0)
-			{
-				timeRegendFood = 10; // remember modify in function Start() value default
-				food += foodRegend;
-				if(food > maxFood)
-					food = maxFood;
-				
-				Debug.Log(" Food: "+food);
-			}
-		}
+		food += foodValue;
+	    if(food > maxFood)
+			food = maxFood;	
 	}
 	
 	void CountDownNextTroop()
 	{
 		// Count down to build next troop with same id
-        for (int i = 0; i < maxTroopInLevel; i++)
+        for (int i = 0; i < totalTroop; i++)
         {
             if (arrayCountDown[i] > 0)
             {
@@ -152,10 +150,12 @@ public class Shop : MonoBehaviour {
 
         if (buildManager.isPlay)
         {
-			if(food >= arrayCostTroop[idItemShop])
-				buildManager.SetTroopToBuild(arrayTroopID[idItemShop]);
-			else
-				Debug.Log(" Food is not enough: "+food);
+            if (food >= arrayCostTroop[idItemShop])
+                buildManager.SetTroopToBuild(arrayTroopID[idItemShop]);
+            else
+            {
+                Debug.Log(" Food is not enough: " + food);
+            }
         }
         else
         {

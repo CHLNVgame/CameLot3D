@@ -31,9 +31,12 @@ public class EnemyMelee : EnemyManager {
 	IEnumerator CreateDamge()
 	{
 		yield return new WaitForSeconds (0.5f);
-		TroopManager troop = target.GetComponent<TroopManager>();
-		if(troop != null)
-			troop.TakeDamge(damge);
-		target = null;
+        if (target != null)
+        {
+            TroopManager troop = target.GetComponent<TroopManager>();
+            if (troop != null)
+                troop.TakeDamge(damge);
+            target = null;
+        }
 	}
 }

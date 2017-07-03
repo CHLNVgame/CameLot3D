@@ -4,20 +4,24 @@ using UnityEngine;
 
 public class TroopManager : MonoBehaviour {
 
-	public enum choiseName{isStreetFighter, isRobinhood, isRoyalGuard, isRocky, isDefendGuardian, isBoomer, isCentaur, isWizard, isDragon};
+	public enum choiseName{isStreetFighter, isRobinhood, isRoyalGuard, isRocky, isDefendGuardian, isBoomer, isCentaur, isWizard, isDragon, isFarmer};
 	[Header("Settings")]
 	public choiseName nameTroop;
 	public Transform posHit;
 	public int level = 0;
-    public bool isTroopDefend;
+
 	[Header("View")]
-	 float hp;
-    public float speed;
-    public float damge;
-    public float damgeSpec;
-    public float range;
-    public float attackDelay;
-    public float ratioSpecSkill;
+	protected float hp;
+    protected float speed;
+    protected float damge;
+    protected float damgeSpec;
+    protected float range;
+    protected float attackDelay;
+    protected float ratioSpecSkill;
+
+    // ATT only for Farmer. speed as time to appear food, damge ass food to appear
+    protected float timeProductFood;
+    protected float foodProduct;
 
 	public bool isRun;
 	public bool isHurt;
@@ -33,6 +37,7 @@ public class TroopManager : MonoBehaviour {
 	public const string actionBuff = "buff";
 	public const string actionHurt = "hurt";
 	public const string actionDie = "die";
+    public const string actionWork = "work";
 
 
 	string enemyTag = "Enemy";
@@ -46,10 +51,12 @@ public class TroopManager : MonoBehaviour {
 		
 		anim = GetComponent<Animator> ();
 		isRun = false;
-        if (isTroopDefend)
+        if (nameTroop == choiseName.isDefendGuardian)
             anim.Play(actionDefend);
+        else if (nameTroop == choiseName.isFarmer)
+            anim.Play(actionWork);
         else
-		    anim.Play (actionIdle);
+            anim.Play(actionIdle);
 
 		InvokeRepeating ("UpdateTarget", 0f, 0.5f);
 
@@ -96,10 +103,10 @@ public class TroopManager : MonoBehaviour {
 		if (hp <= 0) 
 		{
 			anim.Play (actionDie);
-			Destroy (gameObject, 1f);
+			Destroy (gameObject, 3f);
 			return;
 		}
-		anim.Play (actionHurt);
+	//	anim.Play (actionHurt);
 
 	}
 	public void DelayHurt()
@@ -109,7 +116,8 @@ public class TroopManager : MonoBehaviour {
 
 	public void GetAttribute()
 	{
-		if (nameTroop == choiseName.isStreetFighter) {
+		if (nameTroop == choiseName.isStreetFighter)
+        {
 			hp = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.SPEED_TROOP];
 			damge = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.DAMGE_TROOP];
@@ -119,7 +127,8 @@ public class TroopManager : MonoBehaviour {
 			ratioSpecSkill = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.RATIO_SPEC_TROOP];
           
 		}
-		if (nameTroop == choiseName.isRobinhood) {
+		if (nameTroop == choiseName.isRobinhood)
+        {
 			hp = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.SPEED_TROOP];
 			damge = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.DAMGE_TROOP];
@@ -128,7 +137,8 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isRoyalGuard) {
+		if (nameTroop == choiseName.isRoyalGuard)
+        {
 			hp = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.SPEED_TROOP];
 			damge = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.DAMGE_TROOP];
@@ -137,7 +147,8 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isRocky) {
+		if (nameTroop == choiseName.isRocky)
+        {
 			hp = Attributes.TROOP_ROCKY_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_ROCKY_ATT [level, Attributes.SPEED_TROOP];
 			damge = Attributes.TROOP_ROCKY_ATT [level, Attributes.DAMGE_TROOP];
@@ -146,7 +157,8 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_ROCKY_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_ROCKY_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isDefendGuardian) {
+		if (nameTroop == choiseName.isDefendGuardian)
+        {
 			hp = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.SPEED_TROOP];
 			damge = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.DAMGE_TROOP];
@@ -155,7 +167,8 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isBoomer) {
+		if (nameTroop == choiseName.isBoomer)
+        {
 			hp = Attributes.TROOP_BOOMER_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_BOOMER_ATT [level, Attributes.SPEED_TROOP];
 			damge = Attributes.TROOP_BOOMER_ATT [level, Attributes.DAMGE_TROOP];
@@ -164,7 +177,8 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_BOOMER_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_BOOMER_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isCentaur) {
+		if (nameTroop == choiseName.isCentaur)
+        {
 			hp = Attributes.TROOP_CENTAUR_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_CENTAUR_ATT [level, Attributes.SPEED_TROOP];
 			damge = Attributes.TROOP_CENTAUR_ATT [level, Attributes.DAMGE_TROOP];
@@ -173,7 +187,8 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_CENTAUR_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_CENTAUR_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isWizard) {
+		if (nameTroop == choiseName.isWizard)
+        {
 			hp = Attributes.TROOP_WIZARD_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_WIZARD_ATT [level, Attributes.SPEED_TROOP];
 			damge = Attributes.TROOP_WIZARD_ATT [level, Attributes.DAMGE_TROOP];
@@ -182,14 +197,28 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_WIZARD_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_WIZARD_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isDragon) {
-			hp = Attributes.TROOP_DRAGON_ATT [level, Attributes.HP_TROOP];
-			speed = Attributes.TROOP_DRAGON_ATT [level, Attributes.SPEED_TROOP];
-			damge = Attributes.TROOP_DRAGON_ATT [level, Attributes.DAMGE_TROOP];
-			range = Attributes.TROOP_DRAGON_ATT [level, Attributes.RANGE_TROOP];
-			attackDelay = Attributes.TROOP_DRAGON_ATT [level, Attributes.ATTACK_DELAY_TROOP];
-			damgeSpec = Attributes.TROOP_DRAGON_ATT [level, Attributes.DAMGE_SPEC_TROOP];
-			ratioSpecSkill = Attributes.TROOP_DRAGON_ATT [level, Attributes.RATIO_SPEC_TROOP];
-		}
+        if (nameTroop == choiseName.isDragon)
+        {
+            hp = Attributes.TROOP_DRAGON_ATT[level, Attributes.HP_TROOP];
+            speed = Attributes.TROOP_DRAGON_ATT[level, Attributes.SPEED_TROOP];
+            damge = Attributes.TROOP_DRAGON_ATT[level, Attributes.DAMGE_TROOP];
+            range = Attributes.TROOP_DRAGON_ATT[level, Attributes.RANGE_TROOP];
+            attackDelay = Attributes.TROOP_DRAGON_ATT[level, Attributes.ATTACK_DELAY_TROOP];
+            damgeSpec = Attributes.TROOP_DRAGON_ATT[level, Attributes.DAMGE_SPEC_TROOP];
+            ratioSpecSkill = Attributes.TROOP_DRAGON_ATT[level, Attributes.RATIO_SPEC_TROOP];
+        }
+        if (nameTroop == choiseName.isFarmer)
+        {
+            hp = Attributes.TROOP_FARMER_ATT[level, Attributes.HP_TROOP];
+            speed = Attributes.TROOP_FARMER_ATT[level, Attributes.SPEED_TROOP];
+            damge = Attributes.TROOP_FARMER_ATT[level, Attributes.DAMGE_TROOP];
+            range = Attributes.TROOP_FARMER_ATT[level, Attributes.RANGE_TROOP];
+            attackDelay = Attributes.TROOP_FARMER_ATT[level, Attributes.ATTACK_DELAY_TROOP];
+            damgeSpec = Attributes.TROOP_FARMER_ATT[level, Attributes.DAMGE_SPEC_TROOP];
+            ratioSpecSkill = Attributes.TROOP_FARMER_ATT[level, Attributes.RATIO_SPEC_TROOP];
+
+            timeProductFood = speed;
+            foodProduct = damge;
+        }
 	}
 }

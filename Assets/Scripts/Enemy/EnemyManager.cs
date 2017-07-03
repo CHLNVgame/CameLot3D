@@ -122,21 +122,21 @@ public class EnemyManager : MonoBehaviour {
 	public void TakeDamge(float damge)
 	{
 		hp -= damge;
-		isHurt = true;
-		Invoke ("DelayHurt", 0.5f);
+	//	isHurt = true;
+	//	Invoke ("DelayHurt", 0.5f);
 		if (hp <= 0) 
 		{
 			anim.Play (actionDie);
-			Destroy (gameObject, 1f);
+			Destroy (gameObject, 3f);
 			return;
 		}
-		anim.Play (actionHurt);
+	//	anim.Play (actionHurt);
 
 	}
-	public void DelayHurt()
-	{
-		isHurt = false;
-	}
+	//public void DelayHurt()
+	//{
+	//	isHurt = false;
+	//}
 /*
 	void OnDrawGizmosSelected()
 	{

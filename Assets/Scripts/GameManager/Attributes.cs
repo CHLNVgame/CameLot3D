@@ -48,14 +48,14 @@ public class Attributes : MonoBehaviour {
 
 
     // Total troop
-    public const int TOTAL_TROOP = 9;
+    public const int TOTAL_TROOP = 10;
     public static float[] FOOD_REQUIRE_TROOP = new float[TOTAL_TROOP] 
     {
-        10, 20, 30, 40, 50, 70, 100, 150, 200
+        10, 20, 30, 40, 50, 70, 100, 150, 200, 5
     };
     public static float[] TIME_NEXT_TROOP = new float[TOTAL_TROOP] 
     {
-        10, 15, 20, 30, 45, 70, 90, 135, 200
+        10, 15, 20, 30, 45, 70, 90, 135, 200, 5
     };
 
     public const int HP_TROOP = 0;
@@ -114,5 +114,10 @@ public class Attributes : MonoBehaviour {
 		{ 5700,	1,		2000,		5,		5,		200, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
 	};
-	
+    public static float[,] TROOP_FARMER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT]
+    {
+        { 100,      10,     15,     0,      0,      0,        0}, // HP, Time Product Food, Food Product, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 20,       1,      2,      5,      5,      3,      15 }
+    };
+
 }
