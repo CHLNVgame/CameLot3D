@@ -44,10 +44,10 @@ public class Shop : MonoBehaviour {
     {
 		buildManager = BuildManager.instance;
 		
-		food = 5;
+		food =150;
 		maxFood = 1000;
-		foodRegend = 15;
-		timeRegendFood = 10; // remember modify in function Update() value default
+		foodRegend = 25;
+		timeRegendFood = 24; // remember modify in function Update() value default
         totalTroop = troopShop.childCount;
         listTroopInGame = new Transform[totalTroop];
         listFillTroopInGame = new Transform[totalTroop];
