@@ -17,7 +17,7 @@ public class Attributes : MonoBehaviour {
 
 	public static float[,] SKELETON_GRUNT_ATT = new float[TOTAL_LEVEL_ATT,TOTAL_ENEMY_ATT]
 	{
-		{150,	1.5f,		100,		1.5f,		3},// HP, SPEED, DAMGE or BUFF, RANGE, DELAY
+		{200,	0.3f,		100,		1.5f,		1},// HP, SPEED, DAMGE or BUFF, RANGE, DELAY
 		{10,	1,		2,		1.5f,		3}
 	};
 	
@@ -29,7 +29,7 @@ public class Attributes : MonoBehaviour {
 
 	public static float[,] SKELETON_WARRIOR_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_ENEMY_ATT] 
 	{
-		{ 600,	1.5f,		200,		1.5f,		3 },// HP, SPEED, DAMGE or BUFF, RANGE, DELAY
+		{ 560,	0.3f,		100,		1.5f,		1 },// HP, SPEED, DAMGE or BUFF, RANGE, DELAY
 		{ 10,	1,		2,		1.5f,		3 }
 	};
 
@@ -51,11 +51,11 @@ public class Attributes : MonoBehaviour {
     public const int TOTAL_TROOP = 10;
     public static float[] FOOD_REQUIRE_TROOP = new float[TOTAL_TROOP] 
     {
-        10, 20, 30, 40, 50, 70, 100, 150, 200, 5
+        125, 100, 150, 200, 50, 300, 350, 400, 450, 50
     };
     public static float[] TIME_NEXT_TROOP = new float[TOTAL_TROOP] 
     {
-        10, 15, 20, 30, 45, 70, 90, 135, 200, 5
+        10, 7.5f, 20, 30, 30, 70, 90, 135, 200, 7.5f
     };
 
     public const int HP_TROOP = 0;
@@ -76,7 +76,7 @@ public class Attributes : MonoBehaviour {
 
 	public static float[,] TROOP_ROBINHOOD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 100,	1,		400,		5,		5,		10, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 300,	1,		20,		5,		9,		10, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP // *DONE BALANCE*
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
 	};
 	public static float[,] TROOP_ROYAL_GUARD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
@@ -91,7 +91,7 @@ public class Attributes : MonoBehaviour {
 	};
 	public static float[,] TROOP_DEFEND_GUARDIAN_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 4000,	1,		0,		5,		1.5f,		50, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 3600,	1,		0,		5,		1.5f,		50, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	1.5f,		3,		15 }
 	};
 	public static float[,] TROOP_BOOMER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
@@ -116,7 +116,7 @@ public class Attributes : MonoBehaviour {
 	};
     public static float[,] TROOP_FARMER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT]
     {
-        { 100,      10,     15,     0,      0,      0,        0}, // HP, Time Product Food, Food Product, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+        { 300,      7,     25,     0,      0,      0,        0}, // HP, Time Product Food, Food Product, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,       1,      2,      5,      5,      3,      15 }
     };
 
