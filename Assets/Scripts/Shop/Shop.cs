@@ -150,12 +150,12 @@ public class Shop : MonoBehaviour {
 
         if (buildManager.isPlay)
         {
-         //   if (food >= arrayCostTroop[idItemShop])
+            if (food >= arrayCostTroop[idItemShop])
                 buildManager.SetTroopToBuild(arrayTroopID[idItemShop]);
-       //     else
-        //    {
-        //        Debug.Log(" Food is not enough: " + food);
-        //    }
+            else
+            {
+                Debug.Log(" Food is not enough: " + food);
+            }
         }
         else
         {

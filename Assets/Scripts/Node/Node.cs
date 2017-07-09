@@ -27,6 +27,7 @@ public class Node : MonoBehaviour {
         if (troop != null)
         {
             Debug.Log(" Can't build there");
+            return;
         }
 
         GameObject troopPrefab = buildManager.GetTroopToBuild();
