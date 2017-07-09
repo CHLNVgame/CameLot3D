@@ -8,6 +8,8 @@ public class EnemyMelee : EnemyManager {
 	private float nextActtack = 0f;
 	// Update is called once per frame
 	void Update () {
+        if (isDie)
+            return;
 
 		if (isRun && !isHurt)
 		{
@@ -21,16 +23,19 @@ public class EnemyMelee : EnemyManager {
 			anim.SetBool ("isRun", isRun);
 			anim.Play (actionAttack);
 			nextActtack = attackDelay;
-			StartCoroutine (CreateDamge ());
 		}
 
 		if (nextActtack > 0)
 			nextActtack -= Time.deltaTime;
 	}
 
-	IEnumerator CreateDamge()
+    public void AnimEventAttack() // Call from anim attack
+    {
+        CreateDamge();
+    }
+
+    void CreateDamge()
 	{
-		yield return new WaitForSeconds (0.5f);
         if (target != null)
         {
             TroopManager troop = target.GetComponent<TroopManager>();

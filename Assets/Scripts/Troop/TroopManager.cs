@@ -25,6 +25,7 @@ public class TroopManager : MonoBehaviour {
 
 	public bool isRun;
 	public bool isHurt;
+    public bool isDie;
 	public Animator anim;
 	public float speedSlow;
 	public float speedNormal;
@@ -77,6 +78,8 @@ public class TroopManager : MonoBehaviour {
 
 	void UpdateTarget()
 	{
+        if (isDie)
+            return;
 		// Target on Lane
 		Vector3 checkTarget = transform.position + Vector3.right + Vector3.up/2;
 		Debug.DrawLine (checkTarget, checkTarget + Vector3.up*5, Color.black);
@@ -102,6 +105,7 @@ public class TroopManager : MonoBehaviour {
 		Invoke ("DelayHurt", 0.5f);
 		if (hp <= 0) 
 		{
+            isDie = true;
 			anim.Play (actionDie);
 			Destroy (gameObject, 3f);
 			return;

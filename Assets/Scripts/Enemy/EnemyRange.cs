@@ -11,7 +11,10 @@ public class EnemyRange : EnemyManager {
 	// Update is called once per frame
 	void Update () {
 
-		if (isRun && !isHurt)
+        if (isDie)
+            return;
+
+        if (isRun && !isHurt)
 		{
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		}
@@ -23,18 +26,21 @@ public class EnemyRange : EnemyManager {
 			anim.SetBool ("isRun", isRun);
 			anim.Play (actionAttack);
 			nextActtack = attackDelay;
-			StartCoroutine (CreateArrow ());
 		}
 
 		if (nextActtack > 0)
 			nextActtack -= Time.deltaTime;
 	}
 
-	IEnumerator CreateArrow()
+    public void AnimEventAttack() // Call from anim attack
+    {
+        CreateArrow();
+    }
+
+    void CreateArrow()
 	{
 		GameObject arrow;
 		Arrow src;
-		yield return new WaitForSeconds (0.6f);
 		arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
 		src = arrow.GetComponent<Arrow> ();
 		if (src != null) {

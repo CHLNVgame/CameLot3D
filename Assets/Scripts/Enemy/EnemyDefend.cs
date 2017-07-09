@@ -5,10 +5,13 @@ using UnityEngine;
 public class EnemyDefend : EnemyManager {
 
 	private float nextActtack = 0f;
+
 	// Update is called once per frame
 	void Update () {
+        if (isDie)
+            return;
 
-		if (isRun && !isHurt)
+        if (isRun && !isHurt)
 		{
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		}
@@ -27,12 +30,15 @@ public class EnemyDefend : EnemyManager {
 			nextActtack -= Time.deltaTime;
 	}
 
-	IEnumerator CreateDamge()
-	{
-		yield return new WaitForSeconds (0.5f);
-		TroopManager troop = target.GetComponent<TroopManager>();
-		if(troop != null)
-			troop.TakeDamge(damge);
-		target = null;
-	}
+    public void AnimEventAttack() // Call from anim attack
+    {
+        DeffendActive();
+    }
+
+    void DeffendActive()
+    {
+
+    }
+
+
 }

@@ -13,6 +13,9 @@ public class TroopProduct : TroopManager
     // Update is called once per frame
     void Update()
     {
+        if (isDie)
+            return;
+
         if (isRun)
         {
             transform.Translate(Vector3.forward * speed * Time.deltaTime);

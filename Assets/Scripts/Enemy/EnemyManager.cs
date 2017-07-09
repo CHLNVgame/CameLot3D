@@ -19,7 +19,8 @@ public class EnemyManager : MonoBehaviour {
 	public bool isRun;
 	public bool isAttack;
 	public bool isHurt;
-	public int goldRatio;
+    public bool isDie;
+    public int goldRatio;
 	public int goldNumber;
 	public Animator anim;
 	public float speedSlow;
@@ -74,29 +75,31 @@ public class EnemyManager : MonoBehaviour {
 
 	void UpdateTarget()
 	{
-/*
-		// Target on Radius
-		GameObject[] troops = GameObject.FindGameObjectsWithTag (stroopTag);
-		float shortestDistance = Mathf.Infinity;
-		GameObject nearestTroop = null;
+        /*
+                // Target on Radius
+                GameObject[] troops = GameObject.FindGameObjectsWithTag (stroopTag);
+                float shortestDistance = Mathf.Infinity;
+                GameObject nearestTroop = null;
 
-		foreach(GameObject troop in troops)
-		{
-			float distanceToTroop = Vector3.Distance (transform.position, troop.transform.position);
-			if (distanceToTroop < shortestDistance) 
-			{
-				
-				shortestDistance = distanceToTroop;
-				nearestTroop = troop;
-			}
-		}
+                foreach(GameObject troop in troops)
+                {
+                    float distanceToTroop = Vector3.Distance (transform.position, troop.transform.position);
+                    if (distanceToTroop < shortestDistance) 
+                    {
 
-		if (nearestTroop != null && shortestDistance <= range)
-		{
-			target = nearestTroop.transform;
-			angle = Vector3.Angle (transform.position, target.up);
-		}
-*/
+                        shortestDistance = distanceToTroop;
+                        nearestTroop = troop;
+                    }
+                }
+
+                if (nearestTroop != null && shortestDistance <= range)
+                {
+                    target = nearestTroop.transform;
+                    angle = Vector3.Angle (transform.position, target.up);
+                }
+        */
+        if (isDie)
+            return;
 		// Target on Lane
 		Vector3 checkTarget = transform.position + Vector3.up/2;
 		Debug.DrawLine (checkTarget, checkTarget + Vector3.left*5, Color.red);
@@ -126,6 +129,7 @@ public class EnemyManager : MonoBehaviour {
 	//	Invoke ("DelayHurt", 0.5f);
 		if (hp <= 0) 
 		{
+            isDie = true;
 			anim.Play (actionDie);
 			Destroy (gameObject, 3f);
 			return;

@@ -13,7 +13,10 @@ public class TroopRange : TroopManager {
 	// Update is called once per frame
 	public void Update () {
 
-		if (isRun)
+        if (isDie)
+            return;
+
+        if (isRun)
 		{
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		}
@@ -22,21 +25,29 @@ public class TroopRange : TroopManager {
 		{
 			anim.Play (actionAttack);
 			nextActtack = attackDelay;
-			StartCoroutine(CreateArrow ());
 		}
 
 		if (nextActtack > 0)
 			nextActtack -= Time.deltaTime;
 	}
 
-	// Wait anim a second
-	IEnumerator CreateArrow()
+    public void AnimEventAttack()
+    {
+        CreateArrow();
+    }
+
+    public void AnimEventAttackSpec()
+    {
+
+    }
+
+    // Wait anim a second
+    void CreateArrow()
 	{
 		GameObject arrow;
 		Arrow src;
 		if (isWizard)
 		{
-			yield return new WaitForSeconds (0.4f);
 			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
 			src = arrow.GetComponent<Arrow> ();
 			if (src != null) {
@@ -45,7 +56,6 @@ public class TroopRange : TroopManager {
 		}
 		else
 		{
-			yield return new WaitForSeconds (0.55f);
 			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
 			src = arrow.GetComponent<Arrow> ();
 			if (src != null) {

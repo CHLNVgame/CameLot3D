@@ -8,7 +8,10 @@ public class EnemyBuff : EnemyManager {
 	// Update is called once per frame
 	void Update () {
 
-		if (isRun && !isHurt)
+        if (isDie)
+            return;
+
+        if (isRun && !isHurt)
 		{
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		}
@@ -20,19 +23,19 @@ public class EnemyBuff : EnemyManager {
 			anim.SetBool ("isRun", isRun);
 			anim.Play (actionBuff);
 			nextActtack = attackDelay;
-			StartCoroutine (CreateDamge ());
 		}
 
 		if (nextActtack > 0)
 			nextActtack -= Time.deltaTime;
 	}
 
-	IEnumerator CreateDamge()
+    public void AnimEventAttack() // Call from anim attack
+    {
+        CreateBuffRange();
+    }
+
+    void CreateBuffRange()
 	{
-		yield return new WaitForSeconds (0.5f);
-		TroopManager troop = target.GetComponent<TroopManager>();
-		if(troop != null)
-			troop.TakeDamge(damge);
-		target = null;
+		
 	}
 }

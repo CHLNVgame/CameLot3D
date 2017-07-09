@@ -9,7 +9,10 @@ public class TroopFly : TroopManager {
 	// Update is called once per frame
 	void Update() {
 
-		if (isRun)
+        if (isDie)
+            return;
+
+        if (isRun)
 		{
 			transform.Translate (Vector3.forward * speed * Time.deltaTime);
 		}
