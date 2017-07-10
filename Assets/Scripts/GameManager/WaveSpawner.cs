@@ -4,10 +4,11 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour {
 
-	Transform spawnPoint;
+	
 	float timeCountDown = 2f;
 
-	private int indexWave = 0;
+    private Transform spawnPoint;
+    private int indexWave = 0;
 	private int indexEnemy = 0;
 	private float timeNextEnemy = 0f;
 	private float timeNextWave = 0f;

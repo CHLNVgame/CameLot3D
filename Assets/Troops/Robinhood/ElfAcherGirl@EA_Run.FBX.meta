@@ -103,7 +103,7 @@ ModelImporter:
     400096: IK Chain002
     4300000: EA_Weapon
     4300002: Elf_Archer_Body
-    7400000: run
+    7400000: walk
     9500000: //RootNode
     11100000: //RootNode
     13700000: EA_Weapon
@@ -118,14 +118,18 @@ ModelImporter:
     resampleCurves: 1
     optimizeGameObjects: 0
     motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length in
+      copied configuration does not match position in animation file:\n\t'EA_Bip001
+      L Thigh' : position error = 149.183289 mm\n\t'EA_Bip001 R Thigh' : position
+      error = 67.329544 mm\n"
     animationImportErrors: 
-    animationImportWarnings: "Copied Avatar Rig Configuration mis-match. Bone length
-      in copied configuration does not match position in animation file\nElfAcherGirl@EA_Run\nClip
-      'Take 001' has import animation warnings that might lower retargeting quality:\nNote:
-      Activate translation DOF on avatar to improve retargeting quality.\n\t'EA_Bip001
-      Spine' has translation animation that will be discarded.\n\t'EA_Bip001 L Thigh'
-      has translation animation that will be discarded.\n\t'EA_Bip001 R Thigh' has
-      translation animation that will be discarded.\n"
+    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
+      might lower retargeting quality:\nNote: Activate translation DOF on avatar to
+      improve retargeting quality.\n\t'EA_Bip001 Spine' has translation animation
+      that will be discarded.\n\t'EA_Bip001 L Thigh' has translation animation that
+      will be discarded.\n\t'EA_Bip001 R Thigh' has translation animation that will
+      be discarded.\n"
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 1
@@ -136,7 +140,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: run
+      name: walk
       takeName: Take 001
       firstFrame: 0
       lastFrame: 26
@@ -149,7 +153,7 @@ ModelImporter:
       loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 1
-      loopBlendPositionY: 0
+      loopBlendPositionY: 1
       loopBlendPositionXZ: 0
       keepOriginalOrientation: 1
       keepOriginalPositionY: 1

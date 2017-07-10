@@ -102,7 +102,7 @@ ModelImporter:
     4300016: FOOT_L
     4300018: ARM_R
     4300020: HAND_R
-    7400000: K,M,P walk
+    7400000: walk
     9500000: //RootNode
     11100000: //RootNode
     13700000: ARM_L
@@ -129,10 +129,7 @@ ModelImporter:
     rigImportErrors: 
     rigImportWarnings: 
     animationImportErrors: 
-    animationImportWarnings: "\nClip 'Take 001' has import animation warnings that
-      might lower retargeting quality:\n\t'Bip001 L Thigh' has translation animation
-      that will be discarded.\n\t'Bip001 R Thigh' has translation animation that will
-      be discarded.\n"
+    animationImportWarnings: 
     animationRetargetingWarnings: 
     animationDoRetargetingWarnings: 0
     animationCompression: 3
@@ -143,7 +140,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: K,M,P walk
+      name: walk
       takeName: Take 001
       firstFrame: 0
       lastFrame: 25
@@ -153,7 +150,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

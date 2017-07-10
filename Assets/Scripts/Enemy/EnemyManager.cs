@@ -26,7 +26,7 @@ public class EnemyManager : MonoBehaviour {
 	public float speedSlow;
 	public float speedNormal;
 	public Transform target;
-	public const string actionRun ="run";
+	public const string actionRun ="walk";
 	public const string actionAttack = "attack";
 	public const string actionDefend = "defend";
 	public const string actionBuff = "buff";
