@@ -70,43 +70,43 @@ public class Attributes : MonoBehaviour {
     
     public static float[,] TROOP_STREET_FIGHTER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 300,	1,		200,		5,		1.5f,		5, 		15}, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 300,	1,		200,		5,		1.5f,		2000, 		15}, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	1.5f,		3, 		15}
 	};
 
 	public static float[,] TROOP_ROBINHOOD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 300,	1,		20,		5,		9,		10, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP // *DONE BALANCE*
+		{ 300,	1,		20,		5,		9,		2000, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP // *DONE BALANCE*
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
 	};
 	public static float[,] TROOP_ROYAL_GUARD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 1200,	1,		400,		5,		1.5f,		20, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 1200,	1,		400,		5,		1.5f,		2000, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	1.5f,		3, 		15 }
 	};
 	public static float[,] TROOP_ROCKY_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 1600,	1,		200,		5,		1.5f,		40, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 1600,	1,		200,		5,		1.5f,		2000, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	1.5f,		3, 		15 }
 	};
 	public static float[,] TROOP_DEFEND_GUARDIAN_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 3600,	1,		0,		5,		1.5f,		50, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 3600,	1,		0,		5,		1.5f,		2000, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	1.5f,		3,		15 }
 	};
 	public static float[,] TROOP_BOOMER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 320,	1,		600,		5,		5,		70, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 320,	1,		600,		5,		5,		2000, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
 	};
 	public static float[,] TROOP_CENTAUR_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 7000,	1,		1200,		5,		1.5f,		100, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 7000,	1,		1200,		5,		1.5f,		2000, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	1.5f,		3, 		15 }
 	};
 	public static float[,] TROOP_WIZARD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 1000,	1,		1500,		5,		5,		150, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 1000,	1,		1500,		5,		5,		2000, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
 	};
 	public static float[,] TROOP_DRAGON_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
