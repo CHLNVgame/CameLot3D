@@ -4,9 +4,7 @@ using UnityEngine;
 
 public class WaveSpawner : MonoBehaviour {
 
-	public Transform[] listEnemyPrefab;
-
-	public Transform spawnPoint;
+	Transform spawnPoint;
 	float timeCountDown = 2f;
 
 	private int indexWave = 0;
@@ -74,6 +72,6 @@ public class WaveSpawner : MonoBehaviour {
 	void SpawnEnemy(int enemyID, int lane)
 	{	
 		spawnPoint = WayPoints.instance.points[lane];
-		Instantiate (listEnemyPrefab[enemyID], spawnPoint.position, spawnPoint.rotation);
+		Instantiate (LoadPrefab.instance.listEnemyPrefab[enemyID], spawnPoint.position, spawnPoint.rotation);
 	}
 }

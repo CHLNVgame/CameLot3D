@@ -5,11 +5,7 @@ using UnityEngine;
 public class BuildManager : MonoBehaviour {
 
     public static BuildManager instance;
-
-    public GameObject[] troopPrefab;
     public bool isPlay;
-
-
 
     private void Awake()
     {
@@ -30,7 +26,7 @@ public class BuildManager : MonoBehaviour {
 
     public void SetTroopToBuild(int index)
     {
-        troopToBuild = troopPrefab[index];
+        troopToBuild = LoadPrefab.instance.troopPrefab[index];
     }
 
     public GameObject GetTroopToBuild()
