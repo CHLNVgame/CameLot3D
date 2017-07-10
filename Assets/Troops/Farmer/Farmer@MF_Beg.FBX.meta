@@ -72,7 +72,7 @@ ModelImporter:
     4300000: Farmer_plow
     4300002: Farmer_Body
     4300004: Farmer_pipe
-    7400000: beg
+    7400000: die
     9500000: //RootNode
     11100000: //RootNode
     13700000: Farmer_Body
@@ -108,7 +108,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: beg
+      name: die
       takeName: Take 001
       firstFrame: 0
       lastFrame: 33
@@ -118,7 +118,7 @@ ModelImporter:
       cycleOffset: 0
       loop: 0
       hasAdditiveReferencePose: 0
-      loopTime: 0
+      loopTime: 1
       loopBlend: 0
       loopBlendOrientation: 0
       loopBlendPositionY: 0

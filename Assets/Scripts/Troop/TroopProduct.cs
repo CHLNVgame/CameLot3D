@@ -6,7 +6,7 @@ public class TroopProduct : TroopManager
 {
     private float timeCountDown;
 
-    private void Start()
+    private void Awake()
     {
         timeCountDown = timeProductFood;
     }

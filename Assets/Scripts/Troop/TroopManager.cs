@@ -43,14 +43,10 @@ public class TroopManager : MonoBehaviour {
 
 	string enemyTag = "Enemy";
 
-    private void Awake()
-    {
-        GetAttribute();
-    }
 
     void Start () {
-		
-		anim = GetComponent<Animator> ();
+        GetAttribute();
+        anim = GetComponent<Animator> ();
 		isRun = false;
         if (nameTroop == choiseName.isDefendGuardian)
             anim.Play(actionDefend);
@@ -102,10 +98,11 @@ public class TroopManager : MonoBehaviour {
 	{
 		hp -= damge;
 		isHurt = true;
-		Invoke ("DelayHurt", 0.5f);
+	//	Invoke ("DelayHurt", 0.5f);
 		if (hp <= 0) 
 		{
             isDie = true;
+            Debug.Log(" anim: "+anim);
 			anim.Play (actionDie);
 			Destroy (gameObject, 3f);
 			return;
