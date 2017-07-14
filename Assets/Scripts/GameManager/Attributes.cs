@@ -76,7 +76,7 @@ public class Attributes : MonoBehaviour {
 
 	public static float[,] TROOP_ROBINHOOD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
-		{ 300,	1,		20,		5,		9,		10, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP // *DONE BALANCE*
+		{ 300,	1,		20,		5,		9,		1.8f, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP // *DONE BALANCE*
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
 	};
 	public static float[,] TROOP_ROYAL_GUARD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
