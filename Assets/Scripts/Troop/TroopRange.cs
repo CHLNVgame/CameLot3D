@@ -56,7 +56,7 @@ public class TroopRange : TroopManager {
 		}
 		else
 		{
-			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, transform.rotation);
+			arrow = (GameObject)Instantiate (arrowFire, posArrow.position, posArrow.rotation);
 			src = arrow.GetComponent<Arrow> ();
 			if (src != null) {
 				src.SeekArrow (damge, target.transform, false, false);

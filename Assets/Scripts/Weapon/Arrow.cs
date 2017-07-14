@@ -12,6 +12,7 @@ public class Arrow : MonoBehaviour {
 	private bool targetTroop;
 	EnemyManager enemyScr;
 	TroopManager troopScr;
+    float firstDistance;
 	// Use this for initialization
 	public void SeekArrow (float damge, Transform tar, bool slow, bool troop) {
 		Damge = damge;
@@ -28,8 +29,10 @@ public class Arrow : MonoBehaviour {
 			enemyScr = target.GetComponent<EnemyManager> ();
 
 		Destroy (gameObject, 1.5f);
+        firstDistance = 0;
 
-	}
+
+    }
 
 	// Update is called once per frame
 	void Update () {
@@ -50,8 +53,10 @@ public class Arrow : MonoBehaviour {
 				
 		float distanceThisFrame = Speed * Time.deltaTime;
 
-	//	Debug.Log (" distanceThisFrame: "+distanceThisFrame + " +++ magnitude: " +dir.magnitude);
-		if (dir.magnitude <= distanceThisFrame) 
+        if (firstDistance == 0)
+            firstDistance = dir.magnitude / 2;
+    //	Debug.Log (" distanceThisFrame: "+distanceThisFrame + " +++ magnitude: " +dir.magnitude);
+        if (dir.magnitude <= distanceThisFrame) 
 		{
 			GameObject effect = (GameObject)Instantiate (effectHit, transform.position, Quaternion.identity);
 			Destroy (effect, 1f);
@@ -72,15 +77,28 @@ public class Arrow : MonoBehaviour {
             target = null;
 			return;
 		}
-		transform.Translate (dir.normalized * distanceThisFrame, Space.World);
+   /*     //	transform.Translate (dir.normalized * distanceThisFrame, Space.World);
+        transform.Translate(Vector3.forward * Time.deltaTime * 5, Space.World);
         if (targetTroop)
         {
-            transform.LookAt(troopScr.posHit);
+          //  transform.LookAt(troopScr.posHit);
+            transform.rotation = Quaternion.Lerp(transform.rotation, troopScr.posHit.rotation, Time.deltaTime * 5);
         }
         else
         {
-            transform.LookAt(enemyScr.posHit);
+          //  transform.LookAt(enemyScr.posHit);
+            transform.rotation = Quaternion.Lerp(transform.rotation, enemyScr.posHit.rotation, Time.deltaTime * 5);
         }
-	}
+        */
+        transform.LookAt(enemyScr.posHit);
+
+        //clamp the angle magnitude to be less than 45 or less the dist ratio will be off
+        float tempRotate = (dir.magnitude - firstDistance)/ firstDistance;
+        if(tempRotate > 0)
+            transform.rotation = transform.rotation * Quaternion.Euler(-45* tempRotate, 0, 0);
+        float curDist = Vector3.Distance(transform.position, enemyScr.posHit.position);
+      //  transform.Translate(Vector3.forward * Mathf.Min(10 * Time.deltaTime, curDist));
+        transform.Translate(Vector3.forward* distanceThisFrame);
+    }
 
 }
