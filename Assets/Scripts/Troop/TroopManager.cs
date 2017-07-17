@@ -4,9 +4,9 @@ using UnityEngine;
 
 public class TroopManager : MonoBehaviour {
 
-	public enum choiseName{isStreetFighter, isRobinhood, isRoyalGuard, isRocky, isDefendGuardian, isBoomer, isCentaur, isWizard, isDragon, isFarmer};
+	public enum ChoiseName { isStreetFighter, isRobinhood, isRoyalGuard, isRocky, isDefendGuardian, isBoomer, isCentaur, isWizard, isDragon, isFarmer};
 	[Header("Settings")]
-	public choiseName nameTroop;
+	public ChoiseName nameTroop;
 	public Transform posHit;
 	public int level = 0;
 
@@ -48,9 +48,9 @@ public class TroopManager : MonoBehaviour {
         GetAttribute();
         anim = GetComponent<Animator> ();
 		isRun = false;
-        if (nameTroop == choiseName.isDefendGuardian)
+        if (nameTroop == ChoiseName.isDefendGuardian)
             anim.Play(actionDefend);
-        else if (nameTroop == choiseName.isFarmer)
+        else if (nameTroop == ChoiseName.isFarmer)
             anim.Play(actionWork);
         else
             anim.Play(actionIdle);
@@ -132,7 +132,7 @@ public class TroopManager : MonoBehaviour {
 
 	public void GetAttribute()
 	{
-		if (nameTroop == choiseName.isStreetFighter)
+		if (nameTroop == ChoiseName.isStreetFighter)
         {
 			hp = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.SPEED_TROOP];
@@ -143,7 +143,7 @@ public class TroopManager : MonoBehaviour {
 			ratioSpecSkill = Attributes.TROOP_STREET_FIGHTER_ATT [level, Attributes.RATIO_SPEC_TROOP];
           
 		}
-		if (nameTroop == choiseName.isRobinhood)
+		if (nameTroop == ChoiseName.isRobinhood)
         {
 			hp = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.SPEED_TROOP];
@@ -153,7 +153,7 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_ROBINHOOD_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isRoyalGuard)
+		if (nameTroop == ChoiseName.isRoyalGuard)
         {
 			hp = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.SPEED_TROOP];
@@ -163,7 +163,7 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_ROYAL_GUARD_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isRocky)
+		if (nameTroop == ChoiseName.isRocky)
         {
 			hp = Attributes.TROOP_ROCKY_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_ROCKY_ATT [level, Attributes.SPEED_TROOP];
@@ -173,7 +173,7 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_ROCKY_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_ROCKY_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isDefendGuardian)
+		if (nameTroop == ChoiseName.isDefendGuardian)
         {
 			hp = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.SPEED_TROOP];
@@ -183,7 +183,7 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_DEFEND_GUARDIAN_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isBoomer)
+		if (nameTroop == ChoiseName.isBoomer)
         {
 			hp = Attributes.TROOP_BOOMER_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_BOOMER_ATT [level, Attributes.SPEED_TROOP];
@@ -193,7 +193,7 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_BOOMER_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_BOOMER_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isCentaur)
+		if (nameTroop == ChoiseName.isCentaur)
         {
 			hp = Attributes.TROOP_CENTAUR_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_CENTAUR_ATT [level, Attributes.SPEED_TROOP];
@@ -203,7 +203,7 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_CENTAUR_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_CENTAUR_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-		if (nameTroop == choiseName.isWizard)
+		if (nameTroop == ChoiseName.isWizard)
         {
 			hp = Attributes.TROOP_WIZARD_ATT [level, Attributes.HP_TROOP];
 			speed = Attributes.TROOP_WIZARD_ATT [level, Attributes.SPEED_TROOP];
@@ -213,7 +213,7 @@ public class TroopManager : MonoBehaviour {
 			damgeSpec = Attributes.TROOP_WIZARD_ATT [level, Attributes.DAMGE_SPEC_TROOP];
 			ratioSpecSkill = Attributes.TROOP_WIZARD_ATT [level, Attributes.RATIO_SPEC_TROOP];
 		}
-        if (nameTroop == choiseName.isDragon)
+        if (nameTroop == ChoiseName.isDragon)
         {
             hp = Attributes.TROOP_DRAGON_ATT[level, Attributes.HP_TROOP];
             speed = Attributes.TROOP_DRAGON_ATT[level, Attributes.SPEED_TROOP];
@@ -223,7 +223,7 @@ public class TroopManager : MonoBehaviour {
             damgeSpec = Attributes.TROOP_DRAGON_ATT[level, Attributes.DAMGE_SPEC_TROOP];
             ratioSpecSkill = Attributes.TROOP_DRAGON_ATT[level, Attributes.RATIO_SPEC_TROOP];
         }
-        if (nameTroop == choiseName.isFarmer)
+        if (nameTroop == ChoiseName.isFarmer)
         {
             hp = Attributes.TROOP_FARMER_ATT[level, Attributes.HP_TROOP];
             speed = Attributes.TROOP_FARMER_ATT[level, Attributes.SPEED_TROOP];

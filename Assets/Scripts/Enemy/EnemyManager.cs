@@ -5,9 +5,9 @@ using UnityEngine.UI;
 
 public class EnemyManager : MonoBehaviour {
 
-	public enum choiseName{isGrunt, isArcher, isWarrior, isFlute, isSiege};
+	public enum ChoiseName{isGrunt, isArcher, isWarrior, isFlute, isSiege};
 	[Header("Option Setting")]
-	public choiseName nameEnemy;
+	public ChoiseName nameEnemy;
 	public Transform posHit;
     public bool isEnemyDefend;
     public Material slowMesh;
@@ -167,35 +167,35 @@ public class EnemyManager : MonoBehaviour {
 */
 	void GetAttributes()
 	{
-		if (nameEnemy == choiseName.isGrunt) {
+		if (nameEnemy == ChoiseName.isGrunt) {
 			hp = Attributes.SKELETON_GRUNT_ATT [level, Attributes.HP_ENEMY];
 			speed = Attributes.SKELETON_GRUNT_ATT [level, Attributes.SPEED_ENEMY];
 			damge = Attributes.SKELETON_GRUNT_ATT [level, Attributes.DAMGE_ENEMY];
 			range = Attributes.SKELETON_GRUNT_ATT [level, Attributes.RANGE_ENEMY];
 			attackDelay = Attributes.SKELETON_GRUNT_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
 		}
-		if (nameEnemy == choiseName.isArcher) {
+		if (nameEnemy == ChoiseName.isArcher) {
 			hp = Attributes.SKELETON_ARCHER_ATT [level, Attributes.HP_ENEMY];
 			speed = Attributes.SKELETON_ARCHER_ATT [level, Attributes.SPEED_ENEMY];
 			damge = Attributes.SKELETON_ARCHER_ATT [level, Attributes.DAMGE_ENEMY];
 			range = Attributes.SKELETON_ARCHER_ATT [level, Attributes.RANGE_ENEMY];
 			attackDelay = Attributes.SKELETON_ARCHER_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
 		}
-		if (nameEnemy == choiseName.isWarrior) {
+		if (nameEnemy == ChoiseName.isWarrior) {
 			hp = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.HP_ENEMY];
 			speed = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.SPEED_ENEMY];
 			damge = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.DAMGE_ENEMY];
 			range = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.RANGE_ENEMY];
 			attackDelay = Attributes.SKELETON_WARRIOR_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
 		}
-		if (nameEnemy == choiseName.isFlute) {
+		if (nameEnemy == ChoiseName.isFlute) {
 			hp = Attributes.SKELETON_FLUTE_ATT [level, Attributes.HP_ENEMY];
 			speed = Attributes.SKELETON_FLUTE_ATT [level, Attributes.SPEED_ENEMY];
 			damge = Attributes.SKELETON_FLUTE_ATT [level, Attributes.DAMGE_ENEMY];
 			range = Attributes.SKELETON_FLUTE_ATT [level, Attributes.RANGE_ENEMY];
 			attackDelay = Attributes.SKELETON_FLUTE_ATT [level, Attributes.ATTACK_DELAY_ENEMY];
 		}
-		if (nameEnemy == choiseName.isSiege) {
+		if (nameEnemy == ChoiseName.isSiege) {
 			hp = Attributes.SKELETON_SIEGE_ATT [level, Attributes.HP_ENEMY];
 			speed = Attributes.SKELETON_SIEGE_ATT [level, Attributes.SPEED_ENEMY];
 			damge = Attributes.SKELETON_SIEGE_ATT [level, Attributes.DAMGE_ENEMY];
