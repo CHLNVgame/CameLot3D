@@ -78,17 +78,26 @@ public class TroopManager : MonoBehaviour {
             return;
 		// Target on Lane
 		Vector3 checkTarget = transform.position + Vector3.right + Vector3.up/2;
-		Debug.DrawLine (checkTarget, checkTarget + Vector3.up*5, Color.black);
-		Debug.DrawLine (checkTarget, checkTarget + Vector3.right*range, Color.red);
+		//Debug.DrawLine (checkTarget, checkTarget + Vector3.up*5, Color.black);
+		//Debug.DrawLine (checkTarget, checkTarget + Vector3.right*range, Color.red);
 		Ray ray = new Ray (checkTarget, Vector3.right);
 		RaycastHit[] hits = Physics.RaycastAll(ray, range);
 
+        float shortestDistance = range;
 		foreach (RaycastHit hit in hits) 
 		{
-			if (hit.transform.tag.Equals (enemyTag) && target == null) {
-				target = hit.transform;
-			//	target = hit.transform.GetComponent<EnemyManager> ().posHit;
-				Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
+            Transform tempTarget = hit.transform;
+            float tempDistance = Vector3.Distance(checkTarget, tempTarget.position);
+
+            if (tempTarget.tag.Equals(enemyTag) && !tempTarget.GetComponent<EnemyManager>().isDie)
+            {
+                if (tempDistance < shortestDistance)
+                {
+                    target = tempTarget;
+                    shortestDistance = tempDistance;                    
+                }
+ 			//	target = hit.transform.GetComponent<EnemyManager> ().posHit;
+			//	Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
 			}
 		}
 	}
@@ -102,15 +111,21 @@ public class TroopManager : MonoBehaviour {
 		if (hp <= 0) 
 		{
             isDie = true;
-            Debug.Log(" anim: "+anim);
+        //    Debug.Log(" anim: "+anim);
 			anim.Play (actionDie);
-			Destroy (gameObject, 3f);
-			return;
+            Destroy(gameObject, 10f);
+            InvokeRepeating("DestroyObject", 5f, 0.05f);
+            return;
 		}
 	//	anim.Play (actionHurt);
 
 	}
-	public void DelayHurt()
+    void DestroyObject()
+    {
+        transform.position += Vector3.down * Time.deltaTime;
+    }
+
+    public void DelayHurt()
 	{
 		isHurt = false;
 	}

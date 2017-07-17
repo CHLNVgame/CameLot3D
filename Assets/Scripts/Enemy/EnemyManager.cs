@@ -40,7 +40,7 @@ public class EnemyManager : MonoBehaviour {
     protected float range;
     protected float attackDelay;
 
-    string stroopTag = "Troop";
+    string troopTag = "Troop";
 
 
 
@@ -106,15 +106,25 @@ public class EnemyManager : MonoBehaviour {
 		Ray ray = new Ray (checkTarget, Vector3.left);
 		RaycastHit[] hits = Physics.RaycastAll(ray, range);
 
-		foreach (RaycastHit hit in hits) 
-		{
-			if (hit.transform.tag.Equals (stroopTag) && target == null) {
-				target = hit.transform;
-				Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
-			}
-		}
+        float shortestDistance = range;
+        foreach (RaycastHit hit in hits)
+        {
+            Transform tempTarget = hit.transform;
+            float tempDistance = Vector3.Distance(checkTarget, tempTarget.position);
 
-		if (target == null) {
+            if (tempTarget.tag.Equals(troopTag) && !tempTarget.GetComponent<TroopManager>().isDie)
+            {
+                if (tempDistance < shortestDistance)
+                {
+                    target = tempTarget;
+                    shortestDistance = tempDistance;
+                }
+                //	target = hit.transform.GetComponent<EnemyManager> ().posHit;
+                //	Debug.DrawLine (hit.point, hit.point + Vector3.up*4, Color.blue);
+            }
+        }
+
+        if (target == null) {
 			isRun = true;
 			isAttack = false;
 			anim.SetBool ("isRun", isRun);
@@ -131,12 +141,19 @@ public class EnemyManager : MonoBehaviour {
 		{
             isDie = true;
 			anim.Play (actionDie);
-			Destroy (gameObject, 3f);
+            Destroy(gameObject, 10f);
+            InvokeRepeating("DestroyObject", 5f, 0.05f);
+            
 			return;
 		}
 	//	anim.Play (actionHurt);
 
 	}
+
+    void DestroyObject()
+    {
+        transform.position += Vector3.down * Time.deltaTime;
+    }
 	//public void DelayHurt()
 	//{
 	//	isHurt = false;
