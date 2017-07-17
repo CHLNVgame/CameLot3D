@@ -12,6 +12,7 @@ public class Node : MonoBehaviour {
     private Material nodeNormal;
 
     BuildManager buildManager;
+    TroopManager troopSrc;
     void Start()
     {
         rend = GetComponent<Renderer>();
@@ -24,7 +25,7 @@ public class Node : MonoBehaviour {
         if (!BuildManager.instance.isPlay)
             return;
 
-        if (troop != null)
+        if (troop != null && !troopSrc.isDie)
         {
             Debug.Log(" Can't build there");
             return;
@@ -35,7 +36,7 @@ public class Node : MonoBehaviour {
         {
             troop = (GameObject)Instantiate(troopPrefab, transform.position, transform.rotation);
 
-            TroopManager troopSrc = troop.GetComponent<TroopManager>();
+            troopSrc = troop.GetComponent<TroopManager>();
             Shop.instance.PurchaseFinished();
 
             buildManager.FreeCursor(); // Free Cursor when build done
@@ -44,7 +45,7 @@ public class Node : MonoBehaviour {
 
     void OnMouseEnter()
     {
-        if(troop == null && buildManager.CheckTroopToBuild())
+        if ((troop == null && buildManager.CheckTroopToBuild()) || (troopSrc != null && troopSrc.isDie))
             rend.material = nodeEnter;
     }
     void OnMouseExit()

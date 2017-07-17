@@ -142,8 +142,8 @@ public class EnemyManager : MonoBehaviour {
 		{
             isDie = true;
 			anim.Play (actionDie);
-            Destroy(gameObject, 10f);
-            InvokeRepeating("DestroyObject", 5f, 0.05f);
+            Destroy(gameObject, 8f);
+            InvokeRepeating("DestroyObject", 4f, 0.05f);
             
 			return;
 		}

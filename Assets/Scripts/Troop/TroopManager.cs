@@ -114,8 +114,8 @@ public class TroopManager : MonoBehaviour {
             isDie = true;
         //    Debug.Log(" anim: "+anim);
 			anim.Play (actionDie);
-            Destroy(gameObject, 10f);
-            InvokeRepeating("DestroyObject", 5f, 0.05f);
+            Destroy(gameObject, 8f);
+            InvokeRepeating("DestroyObject", 4f, 0.05f);
             return;
 		}
 	//	anim.Play (actionHurt);
