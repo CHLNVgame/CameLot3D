@@ -106,6 +106,7 @@ public class EnemyManager : MonoBehaviour {
 		Ray ray = new Ray (checkTarget, Vector3.left);
 		RaycastHit[] hits = Physics.RaycastAll(ray, range);
 
+        target = null;
         float shortestDistance = range;
         foreach (RaycastHit hit in hits)
         {

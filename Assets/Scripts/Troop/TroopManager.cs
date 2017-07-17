@@ -83,6 +83,7 @@ public class TroopManager : MonoBehaviour {
 		Ray ray = new Ray (checkTarget, Vector3.right);
 		RaycastHit[] hits = Physics.RaycastAll(ray, range);
 
+        target = null;
         float shortestDistance = range;
 		foreach (RaycastHit hit in hits) 
 		{

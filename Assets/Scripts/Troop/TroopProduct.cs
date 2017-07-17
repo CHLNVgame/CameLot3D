@@ -4,15 +4,17 @@ using UnityEngine;
 
 public class TroopProduct : TroopManager
 {
-    private float timeCountDown;
+    private float timeCountDown = -1;
 
     private void Awake()
     {
-        timeCountDown = timeProductFood;
     }
     // Update is called once per frame
     void Update()
     {
+        if(timeCountDown == -1)
+            timeCountDown = timeProductFood;
+
         if (isDie)
             return;
 

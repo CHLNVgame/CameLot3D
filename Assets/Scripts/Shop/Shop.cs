@@ -32,6 +32,8 @@ public class Shop : MonoBehaviour {
 
     BuildManager buildManager;
 
+    static int[] foodStart = new int[10] {150, 50, 50, 50, 50, 60, 70, 80, 90, 100 };
+
     private void Awake()
     {
         if (instance != null)
@@ -43,9 +45,9 @@ public class Shop : MonoBehaviour {
     private void Start()
     {
 		buildManager = BuildManager.instance;
-		
-		food =150;
-		maxFood = 1000;
+        
+		food = foodStart[LoadLevel.instance.level - 1];
+        maxFood = 1000;
 		foodRegend = 25;
 		timeRegendFood = 24; // remember modify in function Update() value default
         totalTroop = troopShop.childCount;

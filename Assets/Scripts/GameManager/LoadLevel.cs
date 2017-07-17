@@ -8,6 +8,7 @@ using System.Xml.Serialization;
 public class LoadLevel : MonoBehaviour {
 	public static LoadLevel instance;
 
+    public int level;
 	public int modeID;
 	public int hpTroopCastle;
 	public int hpEnemyCastle;
@@ -17,7 +18,7 @@ public class LoadLevel : MonoBehaviour {
 	public float[,] dataWaves;
 
 	public TextAsset xmlFile;
-	int level = 1;
+
 
 	void Awake()
 	{
@@ -34,7 +35,8 @@ public class LoadLevel : MonoBehaviour {
 		XmlDocument xmlDoc = new XmlDocument ();
 		xmlDoc.Load (new StringReader(xmlData));
 
-		string xmlPathLevel = "//Levels/Level" + level;
+        if (level == 0) level = 1;
+        string xmlPathLevel = "//Levels/Level" + level;
 		XmlNodeList myNodeList = xmlDoc.SelectNodes (xmlPathLevel);
 		foreach(XmlNode node in myNodeList)
 		{
