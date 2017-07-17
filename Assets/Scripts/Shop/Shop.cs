@@ -33,6 +33,7 @@ public class Shop : MonoBehaviour {
     BuildManager buildManager;
 
     static int[] foodStart = new int[10] {150, 50, 50, 50, 50, 60, 70, 80, 90, 100 };
+    static int[] unlockTroop = new int[10] { 1, 2, 2, 3, 0, 0, 0, 0, 0, 0 };
 
     private void Awake()
     {
@@ -77,6 +78,8 @@ public class Shop : MonoBehaviour {
         for (int i = 0; i < listTroopSelect.Length; i++)
         {
             listTroopSelect[i] = troopSelect.GetChild(i);
+            if (i >= unlockTroop[LoadLevel.instance.level -1])
+                listTroopSelect[i].gameObject.SetActive(false);
         }
 
         troopCount = 0;

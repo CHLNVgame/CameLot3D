@@ -51,11 +51,13 @@ public class Attributes : MonoBehaviour {
     public const int TOTAL_TROOP = 10;
     public static float[] FOOD_REQUIRE_TROOP = new float[TOTAL_TROOP] 
     {
-        125, 100, 150, 200, 50, 300, 350, 400, 450, 50
+       // RH ,Fam,Gua,Rock,StFi,Boom,Cent,Wiza,Drag,Roya
+          100, 50, 50, 200, 125, 300, 350, 400, 450, 150
     };
     public static float[] TIME_NEXT_TROOP = new float[TOTAL_TROOP] 
     {
-        10, 7.5f, 20, 30, 30, 70, 90, 135, 200, 7.5f
+       // RH ,Fam  ,Gua,Rock,StFi,Boom,Cent,Wiza,Drag,Roya
+         7.5f, 7.5f, 30,  30,  10,  70,  90, 135, 200, 20
     };
 
     public const int HP_TROOP = 0;
@@ -68,33 +70,34 @@ public class Attributes : MonoBehaviour {
 	public const int TOTAL_TROOP_ATT = 7;
 
     
-    public static float[,] TROOP_STREET_FIGHTER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
-	{
-		{ 300,	1,		200,		5,		1.5f,		5, 		15}, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
-		{ 20,	1,		2,		5,	 	1.5f,		3, 		15}
-	};
-
-	public static float[,] TROOP_ROBINHOOD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
+ 	public static float[,] TROOP_ROBINHOOD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
 		{ 300,	1,		20,		5,		9,		1.8f, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP // *DONE BALANCE*
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
 	};
-	public static float[,] TROOP_ROYAL_GUARD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
-	{
-		{ 1200,	1,		400,		5,		1.5f,		20, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
-		{ 20,	1,		2,		5,	 	1.5f,		3, 		15 }
-	};
-	public static float[,] TROOP_ROCKY_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
+    public static float[,] TROOP_FARMER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT]
+    {
+            { 300,      7,     25,     0,      0,      0,        0}, // HP, Time Product Food, Food Product, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		    { 20,       1,      2,      5,      5,      3,      15 }
+    };
+    public static float[,] TROOP_DEFEND_GUARDIAN_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT]
+    {
+            { 3600, 1,      0,      5,      1.5f,       50,         15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		    { 20,   1,      2,      5,      1.5f,       3,      15 }
+    };
+
+    public static float[,] TROOP_ROCKY_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
 		{ 1600,	1,		200,		5,		1.5f,		40, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	1.5f,		3, 		15 }
 	};
-	public static float[,] TROOP_DEFEND_GUARDIAN_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
-	{
-		{ 3600,	1,		0,		5,		1.5f,		50, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
-		{ 20,	1,		2,		5,	 	1.5f,		3,		15 }
-	};
-	public static float[,] TROOP_BOOMER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
+    public static float[,] TROOP_STREET_FIGHTER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT]
+    {
+        { 300,  1,      200,        5,      1.5f,       5,      15}, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		{ 20,   1,      2,      5,      1.5f,       3,      15}
+    };
+
+    public static float[,] TROOP_BOOMER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT] 
 	{
 		{ 320,	1,		600,		5,		5,		70, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
@@ -114,10 +117,9 @@ public class Attributes : MonoBehaviour {
 		{ 5700,	1,		2000,		5,		5,		200, 		15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
 		{ 20,	1,		2,		5,	 	5,		3, 		15 }
 	};
-    public static float[,] TROOP_FARMER_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT]
+    public static float[,] TROOP_ROYAL_GUARD_ATT = new float[TOTAL_LEVEL_ATT, TOTAL_TROOP_ATT]
     {
-        { 300,      7,     25,     0,      0,      0,        0}, // HP, Time Product Food, Food Product, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
-		{ 20,       1,      2,      5,      5,      3,      15 }
+            { 1200, 1,      400,        5,      1.5f,       20,         15 }, // HP, SPEED, DAMGE or BUFF, DAME SPEC, RANGE, DELAY, RATIO_SPEC_TROOP
+		    { 20,   1,      2,      5,      1.5f,       3,      15 }
     };
-
 }
