@@ -50,7 +50,7 @@ public class Shop : MonoBehaviour {
 		food = foodStart[LoadLevel.instance.level - 1];
         maxFood = 1000;
 		foodRegend = 25;
-		timeRegendFood = 24; // remember modify in function Update() value default
+		timeRegendFood = 7; // remember modify in function Update() value default
         totalTroop = troopShop.childCount;
         listTroopInGame = new Transform[totalTroop];
         listFillTroopInGame = new Transform[totalTroop];
