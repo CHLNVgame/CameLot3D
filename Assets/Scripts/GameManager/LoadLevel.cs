@@ -20,20 +20,28 @@ public class LoadLevel : MonoBehaviour {
 	public float[,] dataWaves;
 
 	public TextAsset xmlFile;
-
+    string data;
 
 	void Awake()
 	{
 		if (instance != null)
 			return;
 		
-		string data = xmlFile.text;
+		data = xmlFile.text;
 		ParseXmlFile (data);
 		instance = this;
 	}
 
+    public void SetLevel(int _level)
+    {
+        Debug.Log(" 000 ");
+        level = _level;
+        ParseXmlFile(data);
+    }
+
 	void ParseXmlFile(string xmlData)
 	{
+        Debug.Log(" 111 level: "+ level);
 		XmlDocument xmlDoc = new XmlDocument ();
 		xmlDoc.Load (new StringReader(xmlData));
 

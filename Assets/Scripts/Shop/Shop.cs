@@ -203,7 +203,8 @@ public class Shop : MonoBehaviour {
 
     public void ExitGame()
     {
-        Application.Quit();
+        //  Application.Quit();
+        Application.LoadLevel("MainMenu");
     }
 
 }
