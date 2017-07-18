@@ -136,9 +136,8 @@ public class EnemyManager : MonoBehaviour {
 	public void TakeDamge(float damge)
 	{
 		hp -= damge;
-	//	isHurt = true;
-	//	Invoke ("DelayHurt", 0.5f);
-		if (hp <= 0) 
+
+        if (hp <= 0) 
 		{
             isDie = true;
 			anim.Play (actionDie);
@@ -147,18 +146,22 @@ public class EnemyManager : MonoBehaviour {
             
 			return;
 		}
-	//	anim.Play (actionHurt);
 
-	}
+        isHurt = true;
+        anim.Play (actionHurt);
+        Invoke("DelayHurt", 0.5f);
+
+    }
 
     void DestroyObject()
     {
         transform.position += Vector3.down * Time.deltaTime;
     }
-	//public void DelayHurt()
-	//{
-	//	isHurt = false;
-	//}
+
+	public void DelayHurt()
+	{
+		isHurt = false;
+	}
 /*
 	void OnDrawGizmosSelected()
 	{
