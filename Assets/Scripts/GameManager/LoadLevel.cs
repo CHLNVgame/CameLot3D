@@ -9,6 +9,7 @@ public class LoadLevel : MonoBehaviour {
 	public static LoadLevel instance;
 
     public int level;
+    public TextAsset xmlFile;
 
     [Header("Only View")]
 	public int modeID;
@@ -19,7 +20,6 @@ public class LoadLevel : MonoBehaviour {
 
 	public float[,] dataWaves;
 
-	public TextAsset xmlFile;
     string data;
 
 	void Awake()
@@ -35,14 +35,14 @@ public class LoadLevel : MonoBehaviour {
 
     public void SetLevel(int _level)
     {
-        Debug.Log(" 000 ");
+       // Debug.Log(" 000 ");
         level = _level;
         ParseXmlFile(data);
     }
 
 	void ParseXmlFile(string xmlData)
 	{
-        Debug.Log(" 111 level: "+ level);
+       // Debug.Log(" 111 level: "+ level);
 		XmlDocument xmlDoc = new XmlDocument ();
 		xmlDoc.Load (new StringReader(xmlData));
 

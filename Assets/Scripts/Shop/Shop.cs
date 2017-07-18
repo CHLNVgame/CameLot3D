@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class Shop : MonoBehaviour {
@@ -204,7 +205,8 @@ public class Shop : MonoBehaviour {
     public void ExitGame()
     {
         //  Application.Quit();
-        Application.LoadLevel("MainMenu");
+        SceneManager.LoadScene("MainMenu");
+
     }
 
 }
