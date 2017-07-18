@@ -29,6 +29,7 @@ public class Shop : MonoBehaviour {
     private int idItemShop;
     private int maxTroopInLevel = 9;
     private int totalTroop;
+    private float timeRegen = 7;
 
     BuildManager buildManager;
 
@@ -50,7 +51,7 @@ public class Shop : MonoBehaviour {
 		food = foodStart[LoadLevel.instance.level - 1];
         maxFood = 1000;
 		foodRegend = 25;
-		timeRegendFood = 7; // remember modify in function Update() value default
+		timeRegendFood = timeRegen; // remember modify in function Update() value default
         totalTroop = troopShop.childCount;
         listTroopInGame = new Transform[totalTroop];
         listFillTroopInGame = new Transform[totalTroop];
@@ -95,7 +96,7 @@ public class Shop : MonoBehaviour {
             timeRegendFood -= Time.deltaTime;
             if (timeRegendFood <= 0)
             {
-                timeRegendFood = 10; // remember modify in function Start() value default
+                timeRegendFood = timeRegen; // remember modify in function Start() value default
                 RegendFood(foodRegend);
             }
         }

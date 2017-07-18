@@ -9,6 +9,8 @@ public class LoadLevel : MonoBehaviour {
 	public static LoadLevel instance;
 
     public int level;
+
+    [Header("Only View")]
 	public int modeID;
 	public int hpTroopCastle;
 	public int hpEnemyCastle;

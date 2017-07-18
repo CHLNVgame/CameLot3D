@@ -28,7 +28,7 @@ public class Arrow : MonoBehaviour {
 		else
 			enemyScr = target.GetComponent<EnemyManager> ();
 
-		Destroy (gameObject, 1.5f);
+		Destroy (gameObject, 5f);
         firstDistance = 0;
 
 
@@ -38,7 +38,7 @@ public class Arrow : MonoBehaviour {
 	void Update () {
 		Vector3 dir;
 
-        if (target == null)
+        if (target == null || (troopScr != null && troopScr.isDie) || (enemyScr != null && enemyScr.isDie))
         {
             Destroy(gameObject);
             return;
