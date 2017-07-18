@@ -156,7 +156,7 @@ public class Shop : MonoBehaviour {
 
         if (buildManager.isPlay)
         {
-            if (food >= arrayCostTroop[idItemShop])
+            if (food >= arrayCostTroop[idItemShop] && arrayCountDown[idItemShop] <= 0)
                 buildManager.SetTroopToBuild(arrayTroopID[idItemShop]);
             else
             {

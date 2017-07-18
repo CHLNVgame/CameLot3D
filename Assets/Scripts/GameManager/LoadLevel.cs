@@ -30,6 +30,7 @@ public class LoadLevel : MonoBehaviour {
 		data = xmlFile.text;
 		ParseXmlFile (data);
 		instance = this;
+        DontDestroyOnLoad(this);
 	}
 
     public void SetLevel(int _level)
