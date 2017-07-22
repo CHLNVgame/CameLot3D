@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class Node : MonoBehaviour {
 
-
     public Material nodeEnter;
 
     private GameObject troop;
